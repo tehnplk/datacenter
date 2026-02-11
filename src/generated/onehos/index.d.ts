@@ -2073,6 +2073,7 @@ export namespace Prisma {
     ipdCase: number | null
     sumAdjrw: number | null
     cmi: number | null
+    updatedAt: Date | null
   }
 
   export type DrgMaxAggregateOutputType = {
@@ -2084,6 +2085,7 @@ export namespace Prisma {
     ipdCase: number | null
     sumAdjrw: number | null
     cmi: number | null
+    updatedAt: Date | null
   }
 
   export type DrgCountAggregateOutputType = {
@@ -2095,6 +2097,7 @@ export namespace Prisma {
     ipdCase: number
     sumAdjrw: number
     cmi: number
+    updatedAt: number
     _all: number
   }
 
@@ -2126,6 +2129,7 @@ export namespace Prisma {
     ipdCase?: true
     sumAdjrw?: true
     cmi?: true
+    updatedAt?: true
   }
 
   export type DrgMaxAggregateInputType = {
@@ -2137,6 +2141,7 @@ export namespace Prisma {
     ipdCase?: true
     sumAdjrw?: true
     cmi?: true
+    updatedAt?: true
   }
 
   export type DrgCountAggregateInputType = {
@@ -2148,6 +2153,7 @@ export namespace Prisma {
     ipdCase?: true
     sumAdjrw?: true
     cmi?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -2246,6 +2252,7 @@ export namespace Prisma {
     ipdCase: number
     sumAdjrw: number
     cmi: number
+    updatedAt: Date | null
     _count: DrgCountAggregateOutputType | null
     _avg: DrgAvgAggregateOutputType | null
     _sum: DrgSumAggregateOutputType | null
@@ -2276,6 +2283,7 @@ export namespace Prisma {
     ipdCase?: boolean
     sumAdjrw?: boolean
     cmi?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["drg"]>
 
   export type DrgSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2287,6 +2295,7 @@ export namespace Prisma {
     ipdCase?: boolean
     sumAdjrw?: boolean
     cmi?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["drg"]>
 
   export type DrgSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2298,6 +2307,7 @@ export namespace Prisma {
     ipdCase?: boolean
     sumAdjrw?: boolean
     cmi?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["drg"]>
 
   export type DrgSelectScalar = {
@@ -2309,9 +2319,10 @@ export namespace Prisma {
     ipdCase?: boolean
     sumAdjrw?: boolean
     cmi?: boolean
+    updatedAt?: boolean
   }
 
-  export type DrgOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hoscode" | "hosname" | "year" | "mon" | "ipdCase" | "sumAdjrw" | "cmi", ExtArgs["result"]["drg"]>
+  export type DrgOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hoscode" | "hosname" | "year" | "mon" | "ipdCase" | "sumAdjrw" | "cmi" | "updatedAt", ExtArgs["result"]["drg"]>
 
   export type $DrgPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Drg"
@@ -2325,6 +2336,7 @@ export namespace Prisma {
       ipdCase: number
       sumAdjrw: number
       cmi: number
+      updatedAt: Date | null
     }, ExtArgs["result"]["drg"]>
     composites: {}
   }
@@ -2756,6 +2768,7 @@ export namespace Prisma {
     readonly ipdCase: FieldRef<"Drg", 'Int'>
     readonly sumAdjrw: FieldRef<"Drg", 'Float'>
     readonly cmi: FieldRef<"Drg", 'Float'>
+    readonly updatedAt: FieldRef<"Drg", 'DateTime'>
   }
     
 
@@ -3159,7 +3172,8 @@ export namespace Prisma {
     mon: 'mon',
     ipdCase: 'ipdCase',
     sumAdjrw: 'sumAdjrw',
-    cmi: 'cmi'
+    cmi: 'cmi',
+    updatedAt: 'updatedAt'
   };
 
   export type DrgScalarFieldEnum = (typeof DrgScalarFieldEnum)[keyof typeof DrgScalarFieldEnum]
@@ -3240,6 +3254,20 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
   /**
    * Deep Input Types
@@ -3332,6 +3360,7 @@ export namespace Prisma {
     ipdCase?: IntFilter<"Drg"> | number
     sumAdjrw?: FloatFilter<"Drg"> | number
     cmi?: FloatFilter<"Drg"> | number
+    updatedAt?: DateTimeNullableFilter<"Drg"> | Date | string | null
   }
 
   export type DrgOrderByWithRelationInput = {
@@ -3343,6 +3372,7 @@ export namespace Prisma {
     ipdCase?: SortOrder
     sumAdjrw?: SortOrder
     cmi?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
   export type DrgWhereUniqueInput = Prisma.AtLeast<{
@@ -3357,6 +3387,7 @@ export namespace Prisma {
     ipdCase?: IntFilter<"Drg"> | number
     sumAdjrw?: FloatFilter<"Drg"> | number
     cmi?: FloatFilter<"Drg"> | number
+    updatedAt?: DateTimeNullableFilter<"Drg"> | Date | string | null
   }, "id">
 
   export type DrgOrderByWithAggregationInput = {
@@ -3368,6 +3399,7 @@ export namespace Prisma {
     ipdCase?: SortOrder
     sumAdjrw?: SortOrder
     cmi?: SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: DrgCountOrderByAggregateInput
     _avg?: DrgAvgOrderByAggregateInput
     _max?: DrgMaxOrderByAggregateInput
@@ -3387,6 +3419,7 @@ export namespace Prisma {
     ipdCase?: IntWithAggregatesFilter<"Drg"> | number
     sumAdjrw?: FloatWithAggregatesFilter<"Drg"> | number
     cmi?: FloatWithAggregatesFilter<"Drg"> | number
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Drg"> | Date | string | null
   }
 
   export type HospitalCreateInput = {
@@ -3478,6 +3511,7 @@ export namespace Prisma {
     ipdCase?: number
     sumAdjrw: number
     cmi: number
+    updatedAt?: Date | string | null
   }
 
   export type DrgUncheckedCreateInput = {
@@ -3489,6 +3523,7 @@ export namespace Prisma {
     ipdCase?: number
     sumAdjrw: number
     cmi: number
+    updatedAt?: Date | string | null
   }
 
   export type DrgUpdateInput = {
@@ -3499,6 +3534,7 @@ export namespace Prisma {
     ipdCase?: IntFieldUpdateOperationsInput | number
     sumAdjrw?: FloatFieldUpdateOperationsInput | number
     cmi?: FloatFieldUpdateOperationsInput | number
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type DrgUncheckedUpdateInput = {
@@ -3510,6 +3546,7 @@ export namespace Prisma {
     ipdCase?: IntFieldUpdateOperationsInput | number
     sumAdjrw?: FloatFieldUpdateOperationsInput | number
     cmi?: FloatFieldUpdateOperationsInput | number
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type DrgCreateManyInput = {
@@ -3521,6 +3558,7 @@ export namespace Prisma {
     ipdCase?: number
     sumAdjrw: number
     cmi: number
+    updatedAt?: Date | string | null
   }
 
   export type DrgUpdateManyMutationInput = {
@@ -3531,6 +3569,7 @@ export namespace Prisma {
     ipdCase?: IntFieldUpdateOperationsInput | number
     sumAdjrw?: FloatFieldUpdateOperationsInput | number
     cmi?: FloatFieldUpdateOperationsInput | number
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type DrgUncheckedUpdateManyInput = {
@@ -3542,6 +3581,7 @@ export namespace Prisma {
     ipdCase?: IntFieldUpdateOperationsInput | number
     sumAdjrw?: FloatFieldUpdateOperationsInput | number
     cmi?: FloatFieldUpdateOperationsInput | number
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3710,6 +3750,17 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type DrgCountOrderByAggregateInput = {
     id?: SortOrder
     hoscode?: SortOrder
@@ -3719,6 +3770,7 @@ export namespace Prisma {
     ipdCase?: SortOrder
     sumAdjrw?: SortOrder
     cmi?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type DrgAvgOrderByAggregateInput = {
@@ -3739,6 +3791,7 @@ export namespace Prisma {
     ipdCase?: SortOrder
     sumAdjrw?: SortOrder
     cmi?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type DrgMinOrderByAggregateInput = {
@@ -3750,6 +3803,7 @@ export namespace Prisma {
     ipdCase?: SortOrder
     sumAdjrw?: SortOrder
     cmi?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type DrgSumOrderByAggregateInput = {
@@ -3775,6 +3829,20 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3803,6 +3871,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -3929,6 +4001,17 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -3943,6 +4026,20 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
 

@@ -31,7 +31,7 @@ interface MenuGroup {
 }
 
 const oneHospitalItems: MenuItem[] = [
-  { category: "Claim", label: "CMI & adjRW", href: "/onehos/cmi-adjrw" },
+  { category: "DRGs", label: "CMI & adjRW", href: "/onehos/cmi-adjrw" },
   { category: "ER/Refer", label: "Paperless Refer", href: "/onehos/paperless-refer" },
   { category: "ER/Refer", label: "Consult Response", href: "/onehos/consult-response" },
   { category: "ER/Refer", label: "Refer Transport", href: "/onehos/refer-transport" },
@@ -49,8 +49,8 @@ const oneHospitalItems: MenuItem[] = [
   { category: "IP", label: "Admit Dx Top 10", href: "/onehos/admit-dx-top10" },
   { category: "ICU", label: "ICU Mortality", href: "/onehos/icu-mortality" },
   { category: "ICU", label: "Ward Mortality", href: "/onehos/ward-mortality" },
-  { category: "Claim", label: "adjRW Top 10", href: "/onehos/adjrw-top10" },
-  { category: "Claim", label: "CMI Top 10", href: "/onehos/cmi-top10" },
+  { category: "DRGs", label: "adjRW Top 10", href: "/onehos/adjrw-top10" },
+  { category: "DRGs", label: "CMI Top 10", href: "/onehos/cmi-top10" },
   { category: "Pharma", label: "PHR Drug Link", href: "/onehos/phr-drug-link" },
   { category: "Pharma", label: "MALA Prevention", href: "/onehos/mala-prevention" },
 ];

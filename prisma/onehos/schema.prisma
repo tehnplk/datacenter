@@ -18,7 +18,7 @@ model Hospital {
   prov      String?  @db.VarChar(2)
   activated Boolean  @default(true)
 
-  @@map("hospital")
+  @@map("c_hospital")
 }
 
 model Drg {
@@ -30,6 +30,7 @@ model Drg {
   ipdCase   Int      @default(0) @map("ipd_case")
   sumAdjrw  Float    @map("sum_adjrw")
   cmi       Float
+  updatedAt DateTime? @default(now()) @map("updated_at")
 
   @@map("drg")
 }

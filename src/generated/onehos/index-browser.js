@@ -140,7 +140,8 @@ exports.Prisma.DrgScalarFieldEnum = {
   mon: 'mon',
   ipdCase: 'ipdCase',
   sumAdjrw: 'sumAdjrw',
-  cmi: 'cmi'
+  cmi: 'cmi',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
