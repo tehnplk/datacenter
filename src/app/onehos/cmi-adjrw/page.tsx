@@ -2,13 +2,18 @@ import React from "react";
 import { onehosClient } from "@/lib/onehos-prisma";
 import YearSelect from "./YearSelect";
 import MonthSelect from "./MonthSelect";
+import ViewSelect from "./ViewSelect";
+import type { MetricKey } from "./ViewSelect";
 
 export const revalidate = 0;
 
 type SearchParams = {
   year?: string;
   months?: string;
+  view?: string;
 };
+
+const VALID_METRICS = new Set<MetricKey>(["case", "rw", "cmi"]);
 
 const THAI_MONTHS = [
   "ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.",
@@ -41,6 +46,14 @@ export default async function DrgsPage({
 
   const currentThaiYear = new Date().getFullYear() + 543;
   const yearFilter = parseFilterNumber(params.year) ?? currentThaiYear;
+
+  const viewFilter: MetricKey[] = params.view
+    ? params.view.split(",").filter((v): v is MetricKey => VALID_METRICS.has(v as MetricKey))
+    : [];
+  const showCase = viewFilter.length === 0 || viewFilter.includes("case");
+  const showRw = viewFilter.length === 0 || viewFilter.includes("rw");
+  const showCmi = viewFilter.length === 0 || viewFilter.includes("cmi");
+  const colCount = (showCase ? 1 : 0) + (showRw ? 1 : 0) + (showCmi ? 1 : 0);
 
   const drgs = await onehosClient.drgs.findMany({
     where: {
@@ -82,13 +95,16 @@ export default async function DrgsPage({
       </p>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
-        <YearSelect
-          currentYear={yearFilter}
-        />
+        <span className="text-sm font-medium text-gray-600">เลือกช่วงเวลา</span>
+        <YearSelect currentYear={yearFilter} />
         <MonthSelect selectedMonths={monthsFilter} />
       </div>
+      <div className="mt-2 flex items-center gap-3">
+        <span className="text-sm font-medium text-gray-600">เลือกแสดง</span>
+        <ViewSelect selected={viewFilter} />
+      </div>
 
-      <div className="mt-6 overflow-x-auto rounded-lg border border-gray-200">
+      <div className="mt-4 overflow-x-auto rounded-lg border border-gray-200">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-green-50">
             {displayMonths.length > 1 ? (
@@ -115,7 +131,7 @@ export default async function DrgsPage({
                   {displayMonths.map((m, idx) => (
                     <th
                       key={m}
-                      colSpan={3}
+                      colSpan={colCount}
                       className={`border-b border-l border-gray-200 px-2 py-2 text-center text-xs font-bold uppercase tracking-wider text-green-900 ${idx % 2 === 0 ? "bg-green-100/60" : ""}`}
                     >
                       {formatMonthThai(m)}
@@ -127,21 +143,27 @@ export default async function DrgsPage({
                     const stripe = idx % 2 === 0 ? "bg-green-100/60" : "";
                     return (
                       <React.Fragment key={m}>
-                        <th className={`h-10 px-1 border-l border-gray-200 ${stripe}`}>
-                          <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
-                            case
-                          </span>
-                        </th>
-                        <th className={`h-10 px-1 ${stripe}`}>
-                          <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
-                            rw
-                          </span>
-                        </th>
-                        <th className={`h-10 px-1 ${stripe}`}>
-                          <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
-                            cmi
-                          </span>
-                        </th>
+                        {showCase && (
+                          <th className={`h-10 px-1 border-l border-gray-200 ${stripe}`}>
+                            <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
+                              case
+                            </span>
+                          </th>
+                        )}
+                        {showRw && (
+                          <th className={`h-10 px-1 ${colCount > 1 ? "" : "border-l border-gray-200 "} ${stripe}`}>
+                            <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
+                              rw
+                            </span>
+                          </th>
+                        )}
+                        {showCmi && (
+                          <th className={`h-10 px-1 ${colCount > 1 ? "" : "border-l border-gray-200 "} ${stripe}`}>
+                            <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
+                              cmi
+                            </span>
+                          </th>
+                        )}
                       </React.Fragment>
                     );
                   })}
@@ -158,15 +180,21 @@ export default async function DrgsPage({
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-green-800">
                   หน่วยงาน
                 </th>
-                <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-green-800">
-                  IP Case
-                </th>
-                <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-green-800">
-                  Sum AdjRW
-                </th>
-                <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-green-800">
-                  CMI
-                </th>
+                {showCase && (
+                  <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-green-800">
+                    IP Case
+                  </th>
+                )}
+                {showRw && (
+                  <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-green-800">
+                    Sum AdjRW
+                  </th>
+                )}
+                {showCmi && (
+                  <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wider text-green-800">
+                    CMI
+                  </th>
+                )}
               </tr>
             )}
           </thead>
@@ -190,32 +218,38 @@ export default async function DrgsPage({
                   const stripe = idx % 2 === 0 ? "bg-green-50/60" : "";
                   return (
                     <React.Fragment key={m}>
-                      <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 border-l border-gray-100 ${stripe}`}>
-                        {d ? d.ipdCase.toLocaleString("th-TH") : "-"}
-                      </td>
-                      <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 ${stripe}`}>
-                        {d
-                          ? d.sumAdjrw.toLocaleString("th-TH", {
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2,
-                            })
-                          : "-"}
-                      </td>
-                      <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono font-semibold ${stripe}`}>
-                        {d ? (
-                          <span
-                            className={
-                              d.cmi >= 1.0
-                                ? "text-green-700"
-                                : "text-orange-600"
-                            }
-                          >
-                            {d.cmi.toFixed(2)}
-                          </span>
-                        ) : (
-                          "-"
-                        )}
-                      </td>
+                      {showCase && (
+                        <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 border-l border-gray-100 ${stripe}`}>
+                          {d ? d.ipdCase.toLocaleString("th-TH") : "-"}
+                        </td>
+                      )}
+                      {showRw && (
+                        <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 ${!showCase ? "border-l border-gray-100 " : ""}${stripe}`}>
+                          {d
+                            ? d.sumAdjrw.toLocaleString("th-TH", {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2,
+                              })
+                            : "-"}
+                        </td>
+                      )}
+                      {showCmi && (
+                        <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono font-semibold ${!showCase && !showRw ? "border-l border-gray-100 " : ""}${stripe}`}>
+                          {d ? (
+                            <span
+                              className={
+                                d.cmi >= 1.0
+                                  ? "text-green-700"
+                                  : "text-orange-600"
+                              }
+                            >
+                              {d.cmi.toFixed(2)}
+                            </span>
+                          ) : (
+                            "-"
+                          )}
+                        </td>
+                      )}
                     </React.Fragment>
                   );
                 })}
@@ -224,6 +258,7 @@ export default async function DrgsPage({
           </tbody>
         </table>
       </div>
+
     </div>
   );
 }
