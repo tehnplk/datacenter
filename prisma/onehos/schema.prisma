@@ -34,3 +34,11 @@ model Drg {
 
   @@map("drg")
 }
+
+model RawData {
+  id        String   @id @default(uuid())
+  payload   Json
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  @@map("raw_data")
+}

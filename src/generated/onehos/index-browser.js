@@ -144,9 +144,19 @@ exports.Prisma.DrgScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.RawDataScalarFieldEnum = {
+  id: 'id',
+  payload: 'payload',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -159,10 +169,17 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
   Hospital: 'Hospital',
-  Drg: 'Drg'
+  Drg: 'Drg',
+  RawData: 'RawData'
 };
 
 /**
