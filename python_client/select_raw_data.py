@@ -19,7 +19,7 @@ def build_connection_kwargs() -> Dict[str, Any]:
 
 
 def fetch_raw_data(
-    target_table: Optional[str], month: Optional[int], limit: int
+    target_table: Optional[str], month: Optional[int], limit: Optional[int]
 ) -> List[Dict[str, Any]]:
     conditions: List[str] = []
     params: List[Any] = []
@@ -35,6 +35,8 @@ def fetch_raw_data(
     if conditions:
         where_clause = "WHERE " + " AND ".join(conditions)
 
+    limit_clause = " LIMIT %s" if limit is not None else ""
+
     query = f"""
         SELECT
             payload->>'hoscode' AS hoscode,
@@ -48,10 +50,11 @@ def fetch_raw_data(
         FROM raw_data
         {where_clause}
         ORDER BY updated_at DESC
-        LIMIT %s
+        {limit_clause}
     """
 
-    params.append(limit)
+    if limit is not None:
+        params.append(limit)
 
     conn = psycopg2.connect(**build_connection_kwargs())
     try:
@@ -126,8 +129,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--limit",
         type=int,
-        default=20,
-        help="Number of rows to return (default: 20)",
+        default=None,
+        help="Number of rows to return (omit for no limit)",
     )
     parser.add_argument(
         "--pretty",
