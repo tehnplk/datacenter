@@ -55,7 +55,7 @@ export default async function DrgsPage({
   const showCmi = viewFilter.length === 0 || viewFilter.includes("cmi");
   const colCount = (showCase ? 1 : 0) + (showRw ? 1 : 0) + (showCmi ? 1 : 0);
 
-  const drgs = await onehosClient.drgs.findMany({
+  const drgs = await onehosClient.drgsSum.findMany({
     where: {
       ...(yearFilter ? { year: yearFilter } : {}),
       ...(monthsFilter.length > 0 ? { mon: { in: monthsFilter } } : {}),

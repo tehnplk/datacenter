@@ -19,10 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type Hospital = $Result.DefaultSelection<Prisma.$HospitalPayload>
 /**
- * Model Drgs
+ * Model DrgsSum
  * 
  */
-export type Drgs = $Result.DefaultSelection<Prisma.$DrgsPayload>
+export type DrgsSum = $Result.DefaultSelection<Prisma.$DrgsSumPayload>
 /**
  * Model RawData
  * 
@@ -157,14 +157,14 @@ export class PrismaClient<
   get hospital(): Prisma.HospitalDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.drgs`: Exposes CRUD operations for the **Drgs** model.
+   * `prisma.drgsSum`: Exposes CRUD operations for the **DrgsSum** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Drgs
-    * const drgs = await prisma.drgs.findMany()
+    * // Fetch zero or more DrgsSums
+    * const drgsSums = await prisma.drgsSum.findMany()
     * ```
     */
-  get drgs(): Prisma.DrgsDelegate<ExtArgs, ClientOptions>;
+  get drgsSum(): Prisma.DrgsSumDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.rawData`: Exposes CRUD operations for the **RawData** model.
@@ -610,7 +610,7 @@ export namespace Prisma {
 
   export const ModelName: {
     Hospital: 'Hospital',
-    Drgs: 'Drgs',
+    DrgsSum: 'DrgsSum',
     RawData: 'RawData'
   };
 
@@ -627,7 +627,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "hospital" | "drgs" | "rawData"
+      modelProps: "hospital" | "drgsSum" | "rawData"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -705,77 +705,77 @@ export namespace Prisma {
           }
         }
       }
-      Drgs: {
-        payload: Prisma.$DrgsPayload<ExtArgs>
-        fields: Prisma.DrgsFieldRefs
+      DrgsSum: {
+        payload: Prisma.$DrgsSumPayload<ExtArgs>
+        fields: Prisma.DrgsSumFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.DrgsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload> | null
+            args: Prisma.DrgsSumFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.DrgsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>
+            args: Prisma.DrgsSumFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>
           }
           findFirst: {
-            args: Prisma.DrgsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload> | null
+            args: Prisma.DrgsSumFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.DrgsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>
+            args: Prisma.DrgsSumFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>
           }
           findMany: {
-            args: Prisma.DrgsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>[]
+            args: Prisma.DrgsSumFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>[]
           }
           create: {
-            args: Prisma.DrgsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>
+            args: Prisma.DrgsSumCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>
           }
           createMany: {
-            args: Prisma.DrgsCreateManyArgs<ExtArgs>
+            args: Prisma.DrgsSumCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.DrgsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>[]
+            args: Prisma.DrgsSumCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>[]
           }
           delete: {
-            args: Prisma.DrgsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>
+            args: Prisma.DrgsSumDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>
           }
           update: {
-            args: Prisma.DrgsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>
+            args: Prisma.DrgsSumUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>
           }
           deleteMany: {
-            args: Prisma.DrgsDeleteManyArgs<ExtArgs>
+            args: Prisma.DrgsSumDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.DrgsUpdateManyArgs<ExtArgs>
+            args: Prisma.DrgsSumUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.DrgsUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>[]
+            args: Prisma.DrgsSumUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>[]
           }
           upsert: {
-            args: Prisma.DrgsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DrgsPayload>
+            args: Prisma.DrgsSumUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DrgsSumPayload>
           }
           aggregate: {
-            args: Prisma.DrgsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDrgs>
+            args: Prisma.DrgsSumAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDrgsSum>
           }
           groupBy: {
-            args: Prisma.DrgsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DrgsGroupByOutputType>[]
+            args: Prisma.DrgsSumGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DrgsSumGroupByOutputType>[]
           }
           count: {
-            args: Prisma.DrgsCountArgs<ExtArgs>
-            result: $Utils.Optional<DrgsCountAggregateOutputType> | number
+            args: Prisma.DrgsSumCountArgs<ExtArgs>
+            result: $Utils.Optional<DrgsSumCountAggregateOutputType> | number
           }
         }
       }
@@ -962,7 +962,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     hospital?: HospitalOmit
-    drgs?: DrgsOmit
+    drgsSum?: DrgsSumOmit
     rawData?: RawDataOmit
   }
 
@@ -2126,18 +2126,18 @@ export namespace Prisma {
 
 
   /**
-   * Model Drgs
+   * Model DrgsSum
    */
 
-  export type AggregateDrgs = {
-    _count: DrgsCountAggregateOutputType | null
-    _avg: DrgsAvgAggregateOutputType | null
-    _sum: DrgsSumAggregateOutputType | null
-    _min: DrgsMinAggregateOutputType | null
-    _max: DrgsMaxAggregateOutputType | null
+  export type AggregateDrgsSum = {
+    _count: DrgsSumCountAggregateOutputType | null
+    _avg: DrgsSumAvgAggregateOutputType | null
+    _sum: DrgsSumSumAggregateOutputType | null
+    _min: DrgsSumMinAggregateOutputType | null
+    _max: DrgsSumMaxAggregateOutputType | null
   }
 
-  export type DrgsAvgAggregateOutputType = {
+  export type DrgsSumAvgAggregateOutputType = {
     id: number | null
     year: number | null
     mon: number | null
@@ -2146,7 +2146,7 @@ export namespace Prisma {
     cmi: number | null
   }
 
-  export type DrgsSumAggregateOutputType = {
+  export type DrgsSumSumAggregateOutputType = {
     id: number | null
     year: number | null
     mon: number | null
@@ -2155,19 +2155,7 @@ export namespace Prisma {
     cmi: number | null
   }
 
-  export type DrgsMinAggregateOutputType = {
-    id: number | null
-    hoscode: string | null
-    hosname: string | null
-    year: number | null
-    mon: number | null
-    ipdCase: number | null
-    sumAdjrw: number | null
-    cmi: number | null
-    updatedAt: Date | null
-  }
-
-  export type DrgsMaxAggregateOutputType = {
+  export type DrgsSumMinAggregateOutputType = {
     id: number | null
     hoscode: string | null
     hosname: string | null
@@ -2179,7 +2167,19 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type DrgsCountAggregateOutputType = {
+  export type DrgsSumMaxAggregateOutputType = {
+    id: number | null
+    hoscode: string | null
+    hosname: string | null
+    year: number | null
+    mon: number | null
+    ipdCase: number | null
+    sumAdjrw: number | null
+    cmi: number | null
+    updatedAt: Date | null
+  }
+
+  export type DrgsSumCountAggregateOutputType = {
     id: number
     hoscode: number
     hosname: number
@@ -2193,7 +2193,7 @@ export namespace Prisma {
   }
 
 
-  export type DrgsAvgAggregateInputType = {
+  export type DrgsSumAvgAggregateInputType = {
     id?: true
     year?: true
     mon?: true
@@ -2202,7 +2202,7 @@ export namespace Prisma {
     cmi?: true
   }
 
-  export type DrgsSumAggregateInputType = {
+  export type DrgsSumSumAggregateInputType = {
     id?: true
     year?: true
     mon?: true
@@ -2211,19 +2211,7 @@ export namespace Prisma {
     cmi?: true
   }
 
-  export type DrgsMinAggregateInputType = {
-    id?: true
-    hoscode?: true
-    hosname?: true
-    year?: true
-    mon?: true
-    ipdCase?: true
-    sumAdjrw?: true
-    cmi?: true
-    updatedAt?: true
-  }
-
-  export type DrgsMaxAggregateInputType = {
+  export type DrgsSumMinAggregateInputType = {
     id?: true
     hoscode?: true
     hosname?: true
@@ -2235,7 +2223,19 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type DrgsCountAggregateInputType = {
+  export type DrgsSumMaxAggregateInputType = {
+    id?: true
+    hoscode?: true
+    hosname?: true
+    year?: true
+    mon?: true
+    ipdCase?: true
+    sumAdjrw?: true
+    cmi?: true
+    updatedAt?: true
+  }
+
+  export type DrgsSumCountAggregateInputType = {
     id?: true
     hoscode?: true
     hosname?: true
@@ -2248,93 +2248,93 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type DrgsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Drgs to aggregate.
+     * Filter which DrgsSum to aggregate.
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Drgs to fetch.
+     * Determine the order of DrgsSums to fetch.
      */
-    orderBy?: DrgsOrderByWithRelationInput | DrgsOrderByWithRelationInput[]
+    orderBy?: DrgsSumOrderByWithRelationInput | DrgsSumOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: DrgsWhereUniqueInput
+    cursor?: DrgsSumWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Drgs from the position of the cursor.
+     * Take `±n` DrgsSums from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Drgs.
+     * Skip the first `n` DrgsSums.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Drgs
+     * Count returned DrgsSums
     **/
-    _count?: true | DrgsCountAggregateInputType
+    _count?: true | DrgsSumCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: DrgsAvgAggregateInputType
+    _avg?: DrgsSumAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: DrgsSumAggregateInputType
+    _sum?: DrgsSumSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: DrgsMinAggregateInputType
+    _min?: DrgsSumMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: DrgsMaxAggregateInputType
+    _max?: DrgsSumMaxAggregateInputType
   }
 
-  export type GetDrgsAggregateType<T extends DrgsAggregateArgs> = {
-        [P in keyof T & keyof AggregateDrgs]: P extends '_count' | 'count'
+  export type GetDrgsSumAggregateType<T extends DrgsSumAggregateArgs> = {
+        [P in keyof T & keyof AggregateDrgsSum]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateDrgs[P]>
-      : GetScalarType<T[P], AggregateDrgs[P]>
+        : GetScalarType<T[P], AggregateDrgsSum[P]>
+      : GetScalarType<T[P], AggregateDrgsSum[P]>
   }
 
 
 
 
-  export type DrgsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DrgsWhereInput
-    orderBy?: DrgsOrderByWithAggregationInput | DrgsOrderByWithAggregationInput[]
-    by: DrgsScalarFieldEnum[] | DrgsScalarFieldEnum
-    having?: DrgsScalarWhereWithAggregatesInput
+  export type DrgsSumGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DrgsSumWhereInput
+    orderBy?: DrgsSumOrderByWithAggregationInput | DrgsSumOrderByWithAggregationInput[]
+    by: DrgsSumScalarFieldEnum[] | DrgsSumScalarFieldEnum
+    having?: DrgsSumScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: DrgsCountAggregateInputType | true
-    _avg?: DrgsAvgAggregateInputType
-    _sum?: DrgsSumAggregateInputType
-    _min?: DrgsMinAggregateInputType
-    _max?: DrgsMaxAggregateInputType
+    _count?: DrgsSumCountAggregateInputType | true
+    _avg?: DrgsSumAvgAggregateInputType
+    _sum?: DrgsSumSumAggregateInputType
+    _min?: DrgsSumMinAggregateInputType
+    _max?: DrgsSumMaxAggregateInputType
   }
 
-  export type DrgsGroupByOutputType = {
+  export type DrgsSumGroupByOutputType = {
     id: number
     hoscode: string
     hosname: string
@@ -2344,28 +2344,28 @@ export namespace Prisma {
     sumAdjrw: number
     cmi: number
     updatedAt: Date | null
-    _count: DrgsCountAggregateOutputType | null
-    _avg: DrgsAvgAggregateOutputType | null
-    _sum: DrgsSumAggregateOutputType | null
-    _min: DrgsMinAggregateOutputType | null
-    _max: DrgsMaxAggregateOutputType | null
+    _count: DrgsSumCountAggregateOutputType | null
+    _avg: DrgsSumAvgAggregateOutputType | null
+    _sum: DrgsSumSumAggregateOutputType | null
+    _min: DrgsSumMinAggregateOutputType | null
+    _max: DrgsSumMaxAggregateOutputType | null
   }
 
-  type GetDrgsGroupByPayload<T extends DrgsGroupByArgs> = Prisma.PrismaPromise<
+  type GetDrgsSumGroupByPayload<T extends DrgsSumGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<DrgsGroupByOutputType, T['by']> &
+      PickEnumerable<DrgsSumGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof DrgsGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof DrgsSumGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], DrgsGroupByOutputType[P]>
-            : GetScalarType<T[P], DrgsGroupByOutputType[P]>
+              : GetScalarType<T[P], DrgsSumGroupByOutputType[P]>
+            : GetScalarType<T[P], DrgsSumGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type DrgsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DrgsSumSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     hoscode?: boolean
     hosname?: boolean
@@ -2375,9 +2375,9 @@ export namespace Prisma {
     sumAdjrw?: boolean
     cmi?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["drgs"]>
+  }, ExtArgs["result"]["drgsSum"]>
 
-  export type DrgsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DrgsSumSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     hoscode?: boolean
     hosname?: boolean
@@ -2387,9 +2387,9 @@ export namespace Prisma {
     sumAdjrw?: boolean
     cmi?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["drgs"]>
+  }, ExtArgs["result"]["drgsSum"]>
 
-  export type DrgsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DrgsSumSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     hoscode?: boolean
     hosname?: boolean
@@ -2399,9 +2399,9 @@ export namespace Prisma {
     sumAdjrw?: boolean
     cmi?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["drgs"]>
+  }, ExtArgs["result"]["drgsSum"]>
 
-  export type DrgsSelectScalar = {
+  export type DrgsSumSelectScalar = {
     id?: boolean
     hoscode?: boolean
     hosname?: boolean
@@ -2413,10 +2413,10 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type DrgsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hoscode" | "hosname" | "year" | "mon" | "ipdCase" | "sumAdjrw" | "cmi" | "updatedAt", ExtArgs["result"]["drgs"]>
+  export type DrgsSumOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "hoscode" | "hosname" | "year" | "mon" | "ipdCase" | "sumAdjrw" | "cmi" | "updatedAt", ExtArgs["result"]["drgsSum"]>
 
-  export type $DrgsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Drgs"
+  export type $DrgsSumPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DrgsSum"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2428,136 +2428,136 @@ export namespace Prisma {
       sumAdjrw: number
       cmi: number
       updatedAt: Date | null
-    }, ExtArgs["result"]["drgs"]>
+    }, ExtArgs["result"]["drgsSum"]>
     composites: {}
   }
 
-  type DrgsGetPayload<S extends boolean | null | undefined | DrgsDefaultArgs> = $Result.GetResult<Prisma.$DrgsPayload, S>
+  type DrgsSumGetPayload<S extends boolean | null | undefined | DrgsSumDefaultArgs> = $Result.GetResult<Prisma.$DrgsSumPayload, S>
 
-  type DrgsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DrgsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: DrgsCountAggregateInputType | true
+  type DrgsSumCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DrgsSumFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DrgsSumCountAggregateInputType | true
     }
 
-  export interface DrgsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Drgs'], meta: { name: 'Drgs' } }
+  export interface DrgsSumDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DrgsSum'], meta: { name: 'DrgsSum' } }
     /**
-     * Find zero or one Drgs that matches the filter.
-     * @param {DrgsFindUniqueArgs} args - Arguments to find a Drgs
+     * Find zero or one DrgsSum that matches the filter.
+     * @param {DrgsSumFindUniqueArgs} args - Arguments to find a DrgsSum
      * @example
-     * // Get one Drgs
-     * const drgs = await prisma.drgs.findUnique({
+     * // Get one DrgsSum
+     * const drgsSum = await prisma.drgsSum.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends DrgsFindUniqueArgs>(args: SelectSubset<T, DrgsFindUniqueArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends DrgsSumFindUniqueArgs>(args: SelectSubset<T, DrgsSumFindUniqueArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Drgs that matches the filter or throw an error with `error.code='P2025'`
+     * Find one DrgsSum that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {DrgsFindUniqueOrThrowArgs} args - Arguments to find a Drgs
+     * @param {DrgsSumFindUniqueOrThrowArgs} args - Arguments to find a DrgsSum
      * @example
-     * // Get one Drgs
-     * const drgs = await prisma.drgs.findUniqueOrThrow({
+     * // Get one DrgsSum
+     * const drgsSum = await prisma.drgsSum.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends DrgsFindUniqueOrThrowArgs>(args: SelectSubset<T, DrgsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends DrgsSumFindUniqueOrThrowArgs>(args: SelectSubset<T, DrgsSumFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Drgs that matches the filter.
+     * Find the first DrgsSum that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsFindFirstArgs} args - Arguments to find a Drgs
+     * @param {DrgsSumFindFirstArgs} args - Arguments to find a DrgsSum
      * @example
-     * // Get one Drgs
-     * const drgs = await prisma.drgs.findFirst({
+     * // Get one DrgsSum
+     * const drgsSum = await prisma.drgsSum.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends DrgsFindFirstArgs>(args?: SelectSubset<T, DrgsFindFirstArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends DrgsSumFindFirstArgs>(args?: SelectSubset<T, DrgsSumFindFirstArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Drgs that matches the filter or
+     * Find the first DrgsSum that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsFindFirstOrThrowArgs} args - Arguments to find a Drgs
+     * @param {DrgsSumFindFirstOrThrowArgs} args - Arguments to find a DrgsSum
      * @example
-     * // Get one Drgs
-     * const drgs = await prisma.drgs.findFirstOrThrow({
+     * // Get one DrgsSum
+     * const drgsSum = await prisma.drgsSum.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends DrgsFindFirstOrThrowArgs>(args?: SelectSubset<T, DrgsFindFirstOrThrowArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends DrgsSumFindFirstOrThrowArgs>(args?: SelectSubset<T, DrgsSumFindFirstOrThrowArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Drgs that matches the filter.
+     * Find zero or more DrgsSums that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {DrgsSumFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Drgs
-     * const drgs = await prisma.drgs.findMany()
+     * // Get all DrgsSums
+     * const drgsSums = await prisma.drgsSum.findMany()
      * 
-     * // Get first 10 Drgs
-     * const drgs = await prisma.drgs.findMany({ take: 10 })
+     * // Get first 10 DrgsSums
+     * const drgsSums = await prisma.drgsSum.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const drgsWithIdOnly = await prisma.drgs.findMany({ select: { id: true } })
+     * const drgsSumWithIdOnly = await prisma.drgsSum.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends DrgsFindManyArgs>(args?: SelectSubset<T, DrgsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends DrgsSumFindManyArgs>(args?: SelectSubset<T, DrgsSumFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Drgs.
-     * @param {DrgsCreateArgs} args - Arguments to create a Drgs.
+     * Create a DrgsSum.
+     * @param {DrgsSumCreateArgs} args - Arguments to create a DrgsSum.
      * @example
-     * // Create one Drgs
-     * const Drgs = await prisma.drgs.create({
+     * // Create one DrgsSum
+     * const DrgsSum = await prisma.drgsSum.create({
      *   data: {
-     *     // ... data to create a Drgs
+     *     // ... data to create a DrgsSum
      *   }
      * })
      * 
      */
-    create<T extends DrgsCreateArgs>(args: SelectSubset<T, DrgsCreateArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends DrgsSumCreateArgs>(args: SelectSubset<T, DrgsSumCreateArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Drgs.
-     * @param {DrgsCreateManyArgs} args - Arguments to create many Drgs.
+     * Create many DrgsSums.
+     * @param {DrgsSumCreateManyArgs} args - Arguments to create many DrgsSums.
      * @example
-     * // Create many Drgs
-     * const drgs = await prisma.drgs.createMany({
+     * // Create many DrgsSums
+     * const drgsSum = await prisma.drgsSum.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends DrgsCreateManyArgs>(args?: SelectSubset<T, DrgsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends DrgsSumCreateManyArgs>(args?: SelectSubset<T, DrgsSumCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Drgs and returns the data saved in the database.
-     * @param {DrgsCreateManyAndReturnArgs} args - Arguments to create many Drgs.
+     * Create many DrgsSums and returns the data saved in the database.
+     * @param {DrgsSumCreateManyAndReturnArgs} args - Arguments to create many DrgsSums.
      * @example
-     * // Create many Drgs
-     * const drgs = await prisma.drgs.createManyAndReturn({
+     * // Create many DrgsSums
+     * const drgsSum = await prisma.drgsSum.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Drgs and only return the `id`
-     * const drgsWithIdOnly = await prisma.drgs.createManyAndReturn({
+     * // Create many DrgsSums and only return the `id`
+     * const drgsSumWithIdOnly = await prisma.drgsSum.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2567,28 +2567,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends DrgsCreateManyAndReturnArgs>(args?: SelectSubset<T, DrgsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends DrgsSumCreateManyAndReturnArgs>(args?: SelectSubset<T, DrgsSumCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Drgs.
-     * @param {DrgsDeleteArgs} args - Arguments to delete one Drgs.
+     * Delete a DrgsSum.
+     * @param {DrgsSumDeleteArgs} args - Arguments to delete one DrgsSum.
      * @example
-     * // Delete one Drgs
-     * const Drgs = await prisma.drgs.delete({
+     * // Delete one DrgsSum
+     * const DrgsSum = await prisma.drgsSum.delete({
      *   where: {
-     *     // ... filter to delete one Drgs
+     *     // ... filter to delete one DrgsSum
      *   }
      * })
      * 
      */
-    delete<T extends DrgsDeleteArgs>(args: SelectSubset<T, DrgsDeleteArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends DrgsSumDeleteArgs>(args: SelectSubset<T, DrgsSumDeleteArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Drgs.
-     * @param {DrgsUpdateArgs} args - Arguments to update one Drgs.
+     * Update one DrgsSum.
+     * @param {DrgsSumUpdateArgs} args - Arguments to update one DrgsSum.
      * @example
-     * // Update one Drgs
-     * const drgs = await prisma.drgs.update({
+     * // Update one DrgsSum
+     * const drgsSum = await prisma.drgsSum.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2598,30 +2598,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends DrgsUpdateArgs>(args: SelectSubset<T, DrgsUpdateArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends DrgsSumUpdateArgs>(args: SelectSubset<T, DrgsSumUpdateArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Drgs.
-     * @param {DrgsDeleteManyArgs} args - Arguments to filter Drgs to delete.
+     * Delete zero or more DrgsSums.
+     * @param {DrgsSumDeleteManyArgs} args - Arguments to filter DrgsSums to delete.
      * @example
-     * // Delete a few Drgs
-     * const { count } = await prisma.drgs.deleteMany({
+     * // Delete a few DrgsSums
+     * const { count } = await prisma.drgsSum.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends DrgsDeleteManyArgs>(args?: SelectSubset<T, DrgsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends DrgsSumDeleteManyArgs>(args?: SelectSubset<T, DrgsSumDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Drgs.
+     * Update zero or more DrgsSums.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {DrgsSumUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Drgs
-     * const drgs = await prisma.drgs.updateMany({
+     * // Update many DrgsSums
+     * const drgsSum = await prisma.drgsSum.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2631,14 +2631,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends DrgsUpdateManyArgs>(args: SelectSubset<T, DrgsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends DrgsSumUpdateManyArgs>(args: SelectSubset<T, DrgsSumUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Drgs and returns the data updated in the database.
-     * @param {DrgsUpdateManyAndReturnArgs} args - Arguments to update many Drgs.
+     * Update zero or more DrgsSums and returns the data updated in the database.
+     * @param {DrgsSumUpdateManyAndReturnArgs} args - Arguments to update many DrgsSums.
      * @example
-     * // Update many Drgs
-     * const drgs = await prisma.drgs.updateManyAndReturn({
+     * // Update many DrgsSums
+     * const drgsSum = await prisma.drgsSum.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2647,8 +2647,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Drgs and only return the `id`
-     * const drgsWithIdOnly = await prisma.drgs.updateManyAndReturn({
+     * // Update zero or more DrgsSums and only return the `id`
+     * const drgsSumWithIdOnly = await prisma.drgsSum.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2661,56 +2661,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends DrgsUpdateManyAndReturnArgs>(args: SelectSubset<T, DrgsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends DrgsSumUpdateManyAndReturnArgs>(args: SelectSubset<T, DrgsSumUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Drgs.
-     * @param {DrgsUpsertArgs} args - Arguments to update or create a Drgs.
+     * Create or update one DrgsSum.
+     * @param {DrgsSumUpsertArgs} args - Arguments to update or create a DrgsSum.
      * @example
-     * // Update or create a Drgs
-     * const drgs = await prisma.drgs.upsert({
+     * // Update or create a DrgsSum
+     * const drgsSum = await prisma.drgsSum.upsert({
      *   create: {
-     *     // ... data to create a Drgs
+     *     // ... data to create a DrgsSum
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Drgs we want to update
+     *     // ... the filter for the DrgsSum we want to update
      *   }
      * })
      */
-    upsert<T extends DrgsUpsertArgs>(args: SelectSubset<T, DrgsUpsertArgs<ExtArgs>>): Prisma__DrgsClient<$Result.GetResult<Prisma.$DrgsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends DrgsSumUpsertArgs>(args: SelectSubset<T, DrgsSumUpsertArgs<ExtArgs>>): Prisma__DrgsSumClient<$Result.GetResult<Prisma.$DrgsSumPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Drgs.
+     * Count the number of DrgsSums.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsCountArgs} args - Arguments to filter Drgs to count.
+     * @param {DrgsSumCountArgs} args - Arguments to filter DrgsSums to count.
      * @example
-     * // Count the number of Drgs
-     * const count = await prisma.drgs.count({
+     * // Count the number of DrgsSums
+     * const count = await prisma.drgsSum.count({
      *   where: {
-     *     // ... the filter for the Drgs we want to count
+     *     // ... the filter for the DrgsSums we want to count
      *   }
      * })
     **/
-    count<T extends DrgsCountArgs>(
-      args?: Subset<T, DrgsCountArgs>,
+    count<T extends DrgsSumCountArgs>(
+      args?: Subset<T, DrgsSumCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], DrgsCountAggregateOutputType>
+          : GetScalarType<T['select'], DrgsSumCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Drgs.
+     * Allows you to perform aggregations operations on a DrgsSum.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {DrgsSumAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2730,13 +2730,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends DrgsAggregateArgs>(args: Subset<T, DrgsAggregateArgs>): Prisma.PrismaPromise<GetDrgsAggregateType<T>>
+    aggregate<T extends DrgsSumAggregateArgs>(args: Subset<T, DrgsSumAggregateArgs>): Prisma.PrismaPromise<GetDrgsSumAggregateType<T>>
 
     /**
-     * Group by Drgs.
+     * Group by DrgsSum.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {DrgsGroupByArgs} args - Group by arguments.
+     * @param {DrgsSumGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2751,14 +2751,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends DrgsGroupByArgs,
+      T extends DrgsSumGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DrgsGroupByArgs['orderBy'] }
-        : { orderBy?: DrgsGroupByArgs['orderBy'] },
+        ? { orderBy: DrgsSumGroupByArgs['orderBy'] }
+        : { orderBy?: DrgsSumGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2807,20 +2807,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, DrgsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDrgsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, DrgsSumGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDrgsSumGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Drgs model
+   * Fields of the DrgsSum model
    */
-  readonly fields: DrgsFieldRefs;
+  readonly fields: DrgsSumFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Drgs.
+   * The delegate class that acts as a "Promise-like" for DrgsSum.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__DrgsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__DrgsSumClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2848,381 +2848,381 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Drgs model
+   * Fields of the DrgsSum model
    */
-  interface DrgsFieldRefs {
-    readonly id: FieldRef<"Drgs", 'Int'>
-    readonly hoscode: FieldRef<"Drgs", 'String'>
-    readonly hosname: FieldRef<"Drgs", 'String'>
-    readonly year: FieldRef<"Drgs", 'Int'>
-    readonly mon: FieldRef<"Drgs", 'Int'>
-    readonly ipdCase: FieldRef<"Drgs", 'Int'>
-    readonly sumAdjrw: FieldRef<"Drgs", 'Float'>
-    readonly cmi: FieldRef<"Drgs", 'Float'>
-    readonly updatedAt: FieldRef<"Drgs", 'DateTime'>
+  interface DrgsSumFieldRefs {
+    readonly id: FieldRef<"DrgsSum", 'Int'>
+    readonly hoscode: FieldRef<"DrgsSum", 'String'>
+    readonly hosname: FieldRef<"DrgsSum", 'String'>
+    readonly year: FieldRef<"DrgsSum", 'Int'>
+    readonly mon: FieldRef<"DrgsSum", 'Int'>
+    readonly ipdCase: FieldRef<"DrgsSum", 'Int'>
+    readonly sumAdjrw: FieldRef<"DrgsSum", 'Float'>
+    readonly cmi: FieldRef<"DrgsSum", 'Float'>
+    readonly updatedAt: FieldRef<"DrgsSum", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Drgs findUnique
+   * DrgsSum findUnique
    */
-  export type DrgsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * Filter, which Drgs to fetch.
+     * Filter, which DrgsSum to fetch.
      */
-    where: DrgsWhereUniqueInput
+    where: DrgsSumWhereUniqueInput
   }
 
   /**
-   * Drgs findUniqueOrThrow
+   * DrgsSum findUniqueOrThrow
    */
-  export type DrgsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * Filter, which Drgs to fetch.
+     * Filter, which DrgsSum to fetch.
      */
-    where: DrgsWhereUniqueInput
+    where: DrgsSumWhereUniqueInput
   }
 
   /**
-   * Drgs findFirst
+   * DrgsSum findFirst
    */
-  export type DrgsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * Filter, which Drgs to fetch.
+     * Filter, which DrgsSum to fetch.
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Drgs to fetch.
+     * Determine the order of DrgsSums to fetch.
      */
-    orderBy?: DrgsOrderByWithRelationInput | DrgsOrderByWithRelationInput[]
+    orderBy?: DrgsSumOrderByWithRelationInput | DrgsSumOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Drgs.
+     * Sets the position for searching for DrgsSums.
      */
-    cursor?: DrgsWhereUniqueInput
+    cursor?: DrgsSumWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Drgs from the position of the cursor.
+     * Take `±n` DrgsSums from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Drgs.
+     * Skip the first `n` DrgsSums.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Drgs.
+     * Filter by unique combinations of DrgsSums.
      */
-    distinct?: DrgsScalarFieldEnum | DrgsScalarFieldEnum[]
+    distinct?: DrgsSumScalarFieldEnum | DrgsSumScalarFieldEnum[]
   }
 
   /**
-   * Drgs findFirstOrThrow
+   * DrgsSum findFirstOrThrow
    */
-  export type DrgsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * Filter, which Drgs to fetch.
+     * Filter, which DrgsSum to fetch.
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Drgs to fetch.
+     * Determine the order of DrgsSums to fetch.
      */
-    orderBy?: DrgsOrderByWithRelationInput | DrgsOrderByWithRelationInput[]
+    orderBy?: DrgsSumOrderByWithRelationInput | DrgsSumOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Drgs.
+     * Sets the position for searching for DrgsSums.
      */
-    cursor?: DrgsWhereUniqueInput
+    cursor?: DrgsSumWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Drgs from the position of the cursor.
+     * Take `±n` DrgsSums from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Drgs.
+     * Skip the first `n` DrgsSums.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Drgs.
+     * Filter by unique combinations of DrgsSums.
      */
-    distinct?: DrgsScalarFieldEnum | DrgsScalarFieldEnum[]
+    distinct?: DrgsSumScalarFieldEnum | DrgsSumScalarFieldEnum[]
   }
 
   /**
-   * Drgs findMany
+   * DrgsSum findMany
    */
-  export type DrgsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * Filter, which Drgs to fetch.
+     * Filter, which DrgsSums to fetch.
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Drgs to fetch.
+     * Determine the order of DrgsSums to fetch.
      */
-    orderBy?: DrgsOrderByWithRelationInput | DrgsOrderByWithRelationInput[]
+    orderBy?: DrgsSumOrderByWithRelationInput | DrgsSumOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Drgs.
+     * Sets the position for listing DrgsSums.
      */
-    cursor?: DrgsWhereUniqueInput
+    cursor?: DrgsSumWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Drgs from the position of the cursor.
+     * Take `±n` DrgsSums from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Drgs.
+     * Skip the first `n` DrgsSums.
      */
     skip?: number
-    distinct?: DrgsScalarFieldEnum | DrgsScalarFieldEnum[]
+    distinct?: DrgsSumScalarFieldEnum | DrgsSumScalarFieldEnum[]
   }
 
   /**
-   * Drgs create
+   * DrgsSum create
    */
-  export type DrgsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * The data needed to create a Drgs.
+     * The data needed to create a DrgsSum.
      */
-    data: XOR<DrgsCreateInput, DrgsUncheckedCreateInput>
+    data: XOR<DrgsSumCreateInput, DrgsSumUncheckedCreateInput>
   }
 
   /**
-   * Drgs createMany
+   * DrgsSum createMany
    */
-  export type DrgsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Drgs.
+     * The data used to create many DrgsSums.
      */
-    data: DrgsCreateManyInput | DrgsCreateManyInput[]
+    data: DrgsSumCreateManyInput | DrgsSumCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Drgs createManyAndReturn
+   * DrgsSum createManyAndReturn
    */
-  export type DrgsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelectCreateManyAndReturn<ExtArgs> | null
+    select?: DrgsSumSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * The data used to create many Drgs.
+     * The data used to create many DrgsSums.
      */
-    data: DrgsCreateManyInput | DrgsCreateManyInput[]
+    data: DrgsSumCreateManyInput | DrgsSumCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Drgs update
+   * DrgsSum update
    */
-  export type DrgsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * The data needed to update a Drgs.
+     * The data needed to update a DrgsSum.
      */
-    data: XOR<DrgsUpdateInput, DrgsUncheckedUpdateInput>
+    data: XOR<DrgsSumUpdateInput, DrgsSumUncheckedUpdateInput>
     /**
-     * Choose, which Drgs to update.
+     * Choose, which DrgsSum to update.
      */
-    where: DrgsWhereUniqueInput
+    where: DrgsSumWhereUniqueInput
   }
 
   /**
-   * Drgs updateMany
+   * DrgsSum updateMany
    */
-  export type DrgsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Drgs.
+     * The data used to update DrgsSums.
      */
-    data: XOR<DrgsUpdateManyMutationInput, DrgsUncheckedUpdateManyInput>
+    data: XOR<DrgsSumUpdateManyMutationInput, DrgsSumUncheckedUpdateManyInput>
     /**
-     * Filter which Drgs to update
+     * Filter which DrgsSums to update
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
-     * Limit how many Drgs to update.
+     * Limit how many DrgsSums to update.
      */
     limit?: number
   }
 
   /**
-   * Drgs updateManyAndReturn
+   * DrgsSum updateManyAndReturn
    */
-  export type DrgsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: DrgsSumSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * The data used to update Drgs.
+     * The data used to update DrgsSums.
      */
-    data: XOR<DrgsUpdateManyMutationInput, DrgsUncheckedUpdateManyInput>
+    data: XOR<DrgsSumUpdateManyMutationInput, DrgsSumUncheckedUpdateManyInput>
     /**
-     * Filter which Drgs to update
+     * Filter which DrgsSums to update
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
-     * Limit how many Drgs to update.
+     * Limit how many DrgsSums to update.
      */
     limit?: number
   }
 
   /**
-   * Drgs upsert
+   * DrgsSum upsert
    */
-  export type DrgsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * The filter to search for the Drgs to update in case it exists.
+     * The filter to search for the DrgsSum to update in case it exists.
      */
-    where: DrgsWhereUniqueInput
+    where: DrgsSumWhereUniqueInput
     /**
-     * In case the Drgs found by the `where` argument doesn't exist, create a new Drgs with this data.
+     * In case the DrgsSum found by the `where` argument doesn't exist, create a new DrgsSum with this data.
      */
-    create: XOR<DrgsCreateInput, DrgsUncheckedCreateInput>
+    create: XOR<DrgsSumCreateInput, DrgsSumUncheckedCreateInput>
     /**
-     * In case the Drgs was found with the provided `where` argument, update it with this data.
+     * In case the DrgsSum was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<DrgsUpdateInput, DrgsUncheckedUpdateInput>
+    update: XOR<DrgsSumUpdateInput, DrgsSumUncheckedUpdateInput>
   }
 
   /**
-   * Drgs delete
+   * DrgsSum delete
    */
-  export type DrgsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
     /**
-     * Filter which Drgs to delete.
+     * Filter which DrgsSum to delete.
      */
-    where: DrgsWhereUniqueInput
+    where: DrgsSumWhereUniqueInput
   }
 
   /**
-   * Drgs deleteMany
+   * DrgsSum deleteMany
    */
-  export type DrgsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Drgs to delete
+     * Filter which DrgsSums to delete
      */
-    where?: DrgsWhereInput
+    where?: DrgsSumWhereInput
     /**
-     * Limit how many Drgs to delete.
+     * Limit how many DrgsSums to delete.
      */
     limit?: number
   }
 
   /**
-   * Drgs without action
+   * DrgsSum without action
    */
-  export type DrgsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DrgsSumDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Drgs
+     * Select specific fields to fetch from the DrgsSum
      */
-    select?: DrgsSelect<ExtArgs> | null
+    select?: DrgsSumSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Drgs
+     * Omit specific fields from the DrgsSum
      */
-    omit?: DrgsOmit<ExtArgs> | null
+    omit?: DrgsSumOmit<ExtArgs> | null
   }
 
 
@@ -4233,7 +4233,7 @@ export namespace Prisma {
   export type HospitalScalarFieldEnum = (typeof HospitalScalarFieldEnum)[keyof typeof HospitalScalarFieldEnum]
 
 
-  export const DrgsScalarFieldEnum: {
+  export const DrgsSumScalarFieldEnum: {
     id: 'id',
     hoscode: 'hoscode',
     hosname: 'hosname',
@@ -4245,7 +4245,7 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type DrgsScalarFieldEnum = (typeof DrgsScalarFieldEnum)[keyof typeof DrgsScalarFieldEnum]
+  export type DrgsSumScalarFieldEnum = (typeof DrgsSumScalarFieldEnum)[keyof typeof DrgsSumScalarFieldEnum]
 
 
   export const RawDataScalarFieldEnum: {
@@ -4457,22 +4457,22 @@ export namespace Prisma {
     activated?: BoolWithAggregatesFilter<"Hospital"> | boolean
   }
 
-  export type DrgsWhereInput = {
-    AND?: DrgsWhereInput | DrgsWhereInput[]
-    OR?: DrgsWhereInput[]
-    NOT?: DrgsWhereInput | DrgsWhereInput[]
-    id?: IntFilter<"Drgs"> | number
-    hoscode?: StringFilter<"Drgs"> | string
-    hosname?: StringFilter<"Drgs"> | string
-    year?: IntFilter<"Drgs"> | number
-    mon?: IntFilter<"Drgs"> | number
-    ipdCase?: IntFilter<"Drgs"> | number
-    sumAdjrw?: FloatFilter<"Drgs"> | number
-    cmi?: FloatFilter<"Drgs"> | number
-    updatedAt?: DateTimeNullableFilter<"Drgs"> | Date | string | null
+  export type DrgsSumWhereInput = {
+    AND?: DrgsSumWhereInput | DrgsSumWhereInput[]
+    OR?: DrgsSumWhereInput[]
+    NOT?: DrgsSumWhereInput | DrgsSumWhereInput[]
+    id?: IntFilter<"DrgsSum"> | number
+    hoscode?: StringFilter<"DrgsSum"> | string
+    hosname?: StringFilter<"DrgsSum"> | string
+    year?: IntFilter<"DrgsSum"> | number
+    mon?: IntFilter<"DrgsSum"> | number
+    ipdCase?: IntFilter<"DrgsSum"> | number
+    sumAdjrw?: FloatFilter<"DrgsSum"> | number
+    cmi?: FloatFilter<"DrgsSum"> | number
+    updatedAt?: DateTimeNullableFilter<"DrgsSum"> | Date | string | null
   }
 
-  export type DrgsOrderByWithRelationInput = {
+  export type DrgsSumOrderByWithRelationInput = {
     id?: SortOrder
     hoscode?: SortOrder
     hosname?: SortOrder
@@ -4484,22 +4484,22 @@ export namespace Prisma {
     updatedAt?: SortOrderInput | SortOrder
   }
 
-  export type DrgsWhereUniqueInput = Prisma.AtLeast<{
+  export type DrgsSumWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: DrgsWhereInput | DrgsWhereInput[]
-    OR?: DrgsWhereInput[]
-    NOT?: DrgsWhereInput | DrgsWhereInput[]
-    hoscode?: StringFilter<"Drgs"> | string
-    hosname?: StringFilter<"Drgs"> | string
-    year?: IntFilter<"Drgs"> | number
-    mon?: IntFilter<"Drgs"> | number
-    ipdCase?: IntFilter<"Drgs"> | number
-    sumAdjrw?: FloatFilter<"Drgs"> | number
-    cmi?: FloatFilter<"Drgs"> | number
-    updatedAt?: DateTimeNullableFilter<"Drgs"> | Date | string | null
+    AND?: DrgsSumWhereInput | DrgsSumWhereInput[]
+    OR?: DrgsSumWhereInput[]
+    NOT?: DrgsSumWhereInput | DrgsSumWhereInput[]
+    hoscode?: StringFilter<"DrgsSum"> | string
+    hosname?: StringFilter<"DrgsSum"> | string
+    year?: IntFilter<"DrgsSum"> | number
+    mon?: IntFilter<"DrgsSum"> | number
+    ipdCase?: IntFilter<"DrgsSum"> | number
+    sumAdjrw?: FloatFilter<"DrgsSum"> | number
+    cmi?: FloatFilter<"DrgsSum"> | number
+    updatedAt?: DateTimeNullableFilter<"DrgsSum"> | Date | string | null
   }, "id">
 
-  export type DrgsOrderByWithAggregationInput = {
+  export type DrgsSumOrderByWithAggregationInput = {
     id?: SortOrder
     hoscode?: SortOrder
     hosname?: SortOrder
@@ -4509,26 +4509,26 @@ export namespace Prisma {
     sumAdjrw?: SortOrder
     cmi?: SortOrder
     updatedAt?: SortOrderInput | SortOrder
-    _count?: DrgsCountOrderByAggregateInput
-    _avg?: DrgsAvgOrderByAggregateInput
-    _max?: DrgsMaxOrderByAggregateInput
-    _min?: DrgsMinOrderByAggregateInput
-    _sum?: DrgsSumOrderByAggregateInput
+    _count?: DrgsSumCountOrderByAggregateInput
+    _avg?: DrgsSumAvgOrderByAggregateInput
+    _max?: DrgsSumMaxOrderByAggregateInput
+    _min?: DrgsSumMinOrderByAggregateInput
+    _sum?: DrgsSumSumOrderByAggregateInput
   }
 
-  export type DrgsScalarWhereWithAggregatesInput = {
-    AND?: DrgsScalarWhereWithAggregatesInput | DrgsScalarWhereWithAggregatesInput[]
-    OR?: DrgsScalarWhereWithAggregatesInput[]
-    NOT?: DrgsScalarWhereWithAggregatesInput | DrgsScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Drgs"> | number
-    hoscode?: StringWithAggregatesFilter<"Drgs"> | string
-    hosname?: StringWithAggregatesFilter<"Drgs"> | string
-    year?: IntWithAggregatesFilter<"Drgs"> | number
-    mon?: IntWithAggregatesFilter<"Drgs"> | number
-    ipdCase?: IntWithAggregatesFilter<"Drgs"> | number
-    sumAdjrw?: FloatWithAggregatesFilter<"Drgs"> | number
-    cmi?: FloatWithAggregatesFilter<"Drgs"> | number
-    updatedAt?: DateTimeNullableWithAggregatesFilter<"Drgs"> | Date | string | null
+  export type DrgsSumScalarWhereWithAggregatesInput = {
+    AND?: DrgsSumScalarWhereWithAggregatesInput | DrgsSumScalarWhereWithAggregatesInput[]
+    OR?: DrgsSumScalarWhereWithAggregatesInput[]
+    NOT?: DrgsSumScalarWhereWithAggregatesInput | DrgsSumScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DrgsSum"> | number
+    hoscode?: StringWithAggregatesFilter<"DrgsSum"> | string
+    hosname?: StringWithAggregatesFilter<"DrgsSum"> | string
+    year?: IntWithAggregatesFilter<"DrgsSum"> | number
+    mon?: IntWithAggregatesFilter<"DrgsSum"> | number
+    ipdCase?: IntWithAggregatesFilter<"DrgsSum"> | number
+    sumAdjrw?: FloatWithAggregatesFilter<"DrgsSum"> | number
+    cmi?: FloatWithAggregatesFilter<"DrgsSum"> | number
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"DrgsSum"> | Date | string | null
   }
 
   export type RawDataWhereInput = {
@@ -4659,7 +4659,7 @@ export namespace Prisma {
     activated?: BoolFieldUpdateOperationsInput | boolean
   }
 
-  export type DrgsCreateInput = {
+  export type DrgsSumCreateInput = {
     hoscode: string
     hosname: string
     year: number
@@ -4670,7 +4670,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type DrgsUncheckedCreateInput = {
+  export type DrgsSumUncheckedCreateInput = {
     id?: number
     hoscode: string
     hosname: string
@@ -4682,7 +4682,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type DrgsUpdateInput = {
+  export type DrgsSumUpdateInput = {
     hoscode?: StringFieldUpdateOperationsInput | string
     hosname?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
@@ -4693,7 +4693,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DrgsUncheckedUpdateInput = {
+  export type DrgsSumUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     hoscode?: StringFieldUpdateOperationsInput | string
     hosname?: StringFieldUpdateOperationsInput | string
@@ -4705,7 +4705,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DrgsCreateManyInput = {
+  export type DrgsSumCreateManyInput = {
     id?: number
     hoscode: string
     hosname: string
@@ -4717,7 +4717,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
   }
 
-  export type DrgsUpdateManyMutationInput = {
+  export type DrgsSumUpdateManyMutationInput = {
     hoscode?: StringFieldUpdateOperationsInput | string
     hosname?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
@@ -4728,7 +4728,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DrgsUncheckedUpdateManyInput = {
+  export type DrgsSumUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     hoscode?: StringFieldUpdateOperationsInput | string
     hosname?: StringFieldUpdateOperationsInput | string
@@ -4966,7 +4966,7 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type DrgsCountOrderByAggregateInput = {
+  export type DrgsSumCountOrderByAggregateInput = {
     id?: SortOrder
     hoscode?: SortOrder
     hosname?: SortOrder
@@ -4978,7 +4978,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type DrgsAvgOrderByAggregateInput = {
+  export type DrgsSumAvgOrderByAggregateInput = {
     id?: SortOrder
     year?: SortOrder
     mon?: SortOrder
@@ -4987,19 +4987,7 @@ export namespace Prisma {
     cmi?: SortOrder
   }
 
-  export type DrgsMaxOrderByAggregateInput = {
-    id?: SortOrder
-    hoscode?: SortOrder
-    hosname?: SortOrder
-    year?: SortOrder
-    mon?: SortOrder
-    ipdCase?: SortOrder
-    sumAdjrw?: SortOrder
-    cmi?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type DrgsMinOrderByAggregateInput = {
+  export type DrgsSumMaxOrderByAggregateInput = {
     id?: SortOrder
     hoscode?: SortOrder
     hosname?: SortOrder
@@ -5011,7 +4999,19 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type DrgsSumOrderByAggregateInput = {
+  export type DrgsSumMinOrderByAggregateInput = {
+    id?: SortOrder
+    hoscode?: SortOrder
+    hosname?: SortOrder
+    year?: SortOrder
+    mon?: SortOrder
+    ipdCase?: SortOrder
+    sumAdjrw?: SortOrder
+    cmi?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DrgsSumSumOrderByAggregateInput = {
     id?: SortOrder
     year?: SortOrder
     mon?: SortOrder
