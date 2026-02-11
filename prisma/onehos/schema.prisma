@@ -21,7 +21,7 @@ model Hospital {
   @@map("c_hospital")
 }
 
-model Drg {
+model Drgs {
   id        Int      @id @default(autoincrement())
   hoscode   String   @db.VarChar(5)
   hosname   String   @db.VarChar(200)
@@ -30,9 +30,9 @@ model Drg {
   ipdCase   Int      @default(0) @map("ipd_case")
   sumAdjrw  Float    @map("sum_adjrw")
   cmi       Float
-  updatedAt DateTime? @default(now()) @map("updated_at")
+  updatedAt DateTime? @map("updated_at")
 
-  @@map("drg")
+  @@map("drgs")
 }
 
 model RawData {

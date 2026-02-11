@@ -132,7 +132,7 @@ exports.Prisma.HospitalScalarFieldEnum = {
   activated: 'activated'
 };
 
-exports.Prisma.DrgScalarFieldEnum = {
+exports.Prisma.DrgsScalarFieldEnum = {
   id: 'id',
   hoscode: 'hoscode',
   hosname: 'hosname',
@@ -147,7 +147,8 @@ exports.Prisma.DrgScalarFieldEnum = {
 exports.Prisma.RawDataScalarFieldEnum = {
   id: 'id',
   payload: 'payload',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  tranformDatetime: 'tranformDatetime'
 };
 
 exports.Prisma.SortOrder = {
@@ -178,7 +179,7 @@ exports.Prisma.JsonNullValueFilter = {
 
 exports.Prisma.ModelName = {
   Hospital: 'Hospital',
-  Drg: 'Drg',
+  Drgs: 'Drgs',
   RawData: 'RawData'
 };
 

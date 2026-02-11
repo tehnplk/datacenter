@@ -24,7 +24,7 @@ const parseFilterNumber = (value?: string) => {
   return Number.isFinite(num) ? num : undefined;
 };
 
-export default async function DrgPage({
+export default async function DrgsPage({
   searchParams,
 }: {
   searchParams: Promise<SearchParams>;
@@ -35,7 +35,7 @@ export default async function DrgPage({
   const currentThaiYear = new Date().getFullYear() + 543;
   const yearFilter = parseFilterNumber(params.year) ?? currentThaiYear;
 
-  const drgs = await onehosClient.drg.findMany({
+  const drgs = await onehosClient.drgs.findMany({
     where: {
       ...(yearFilter ? { year: yearFilter } : {}),
       ...(monthFilter ? { mon: monthFilter } : {}),
