@@ -39,6 +39,7 @@ model RawData {
   id        String   @id @default(uuid())
   payload   Json
   updatedAt DateTime @default(now()) @map("updated_at")
+  tranformDatetime DateTime? @map("tranform_datetime")
 
   @@map("raw_data")
 }
