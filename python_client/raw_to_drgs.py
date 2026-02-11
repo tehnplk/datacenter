@@ -52,7 +52,8 @@ def fetch_raw_records(
     month: Optional[int],
     limit: Optional[int],
 ) -> List[RawRecord]:
-    conditions = ["payload->>'target_table' = 'drg'"]
+    # Only transfer payloads already marked for the DRGs target table
+    conditions = ["payload->>'target_table' = 'drgs'"]
     params: List[Any] = []
 
     if year is not None:
