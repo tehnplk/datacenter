@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Phitsanulok Health Data Center",
+  title: "Phitsanulok Health Dashboard",
   description: "ศูนย์ข้อมูลด้านการแพทย์และสุขภาพ จังหวัดพิษณุโลก",
 };
 

@@ -203,7 +203,7 @@ export default function Sidebar() {
           <div className="flex items-center justify-between border-b border-green-200 px-3 py-4">
             <div className="flex items-center gap-2">
               <LayoutDashboard size={22} className="text-green-600" />
-              <span className="text-sm font-bold text-black">Datacenter</span>
+              <span className="text-sm font-bold text-black">Dashboard</span>
             </div>
             <button
               onClick={closeMobileMenu}
@@ -292,7 +292,7 @@ export default function Sidebar() {
         {!collapsed && (
           <div className="flex items-center gap-2">
             <LayoutDashboard size={22} className="text-green-600" />
-            <span className="text-sm font-bold text-black">Datacenter</span>
+            <span className="text-sm font-bold text-black">Dashboard</span>
           </div>
         )}
         <button

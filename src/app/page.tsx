@@ -26,7 +26,7 @@ export default function Home() {
             Phitsanulok Health
           </p>
           <p className="text-5xl font-extrabold tracking-tight text-green-600">
-            Data Center
+            Dashboard
           </p>
         </div>
 
