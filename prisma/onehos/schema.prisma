@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../src/generated/onehos"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Hospital {
+  id        Int      @id @default(autoincrement())
+  hoscode   String   @unique @db.VarChar(5)
+  hosname   String   @db.VarChar(200)
+  hostype   String?  @db.VarChar(2)
+  orgtype   String?  @db.VarChar(2)
+  tmb       String?  @db.VarChar(6)
+  amp       String?  @db.VarChar(4)
+  prov      String?  @db.VarChar(2)
+  activated Boolean  @default(true)
+
+  @@map("hospital")
+}

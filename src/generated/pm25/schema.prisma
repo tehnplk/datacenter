@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../src/generated/pm25"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Area {
+  id        Int     @id @default(autoincrement())
+  areaCode  String  @unique @map("area_code") @db.VarChar(10)
+  areaName  String  @map("area_name") @db.VarChar(200)
+  activated Boolean @default(true)
+
+  @@map("area")
+}

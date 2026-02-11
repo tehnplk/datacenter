@@ -6,11 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prisma:generate": "bun prisma generate --schema ./prisma/onehos/schema.prisma && bun prisma generate --schema ./prisma/pm25/schema.prisma",
+    "prisma:migrate:onehos": "bun prisma migrate dev --schema ./prisma/onehos/schema.prisma",
+    "prisma:migrate:pm25": "bun prisma migrate dev --schema ./prisma/pm25/schema.prisma",
+    "prisma:migrate": "bun prisma migrate dev --schema ./prisma/onehos/schema.prisma && bun prisma migrate dev --schema ./prisma/pm25/schema.prisma",
+    "prisma:studio:onehos": "bun prisma studio --schema ./prisma/onehos/schema.prisma",
+    "prisma:studio:pm25": "bun prisma studio --schema ./prisma/pm25/schema.prisma"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.3.0",
+    "@prisma/client": "^7.3.0",
+    "dotenv": "^17.2.4",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
+    "prisma": "^7.3.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },

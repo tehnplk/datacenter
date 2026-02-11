@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
+import AnimatedCollapse from "@/components/AnimatedCollapse";
 import { usePathname } from "next/navigation";
 import {
   ChevronLeft,
@@ -229,7 +230,7 @@ export default function Sidebar() {
                   {openGroups[group.title] ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </button>
 
-                {openGroups[group.title] && (
+                <AnimatedCollapse open={openGroups[group.title] === true}>
                   <div className="ml-3 mt-1 flex flex-col gap-1">
                     {Array.from(groupByCategory(group.items)).map(
                       ([category, items]) => {
@@ -244,7 +245,7 @@ export default function Sidebar() {
                               <span>{category}</span>
                               {isOpen ? <Minus size={12} /> : <Plus size={12} />}
                             </button>
-                            {isOpen && (
+                            <AnimatedCollapse open={isOpen}>
                               <div className="flex flex-col gap-0.5">
                                 {items.map((item) => {
                                   const isActive = pathname === item.href;
@@ -263,13 +264,13 @@ export default function Sidebar() {
                                   );
                                 })}
                               </div>
-                            )}
+                            </AnimatedCollapse>
                           </div>
                         );
                       }
                     )}
                   </div>
-                )}
+                </AnimatedCollapse>
               </div>
             ))}
           </nav>
@@ -337,46 +338,48 @@ export default function Sidebar() {
             </button>
 
             {/* Sub Items grouped by category */}
-            {!collapsed && openGroups[group.title] && (
-              <div className="ml-3 mt-1 flex flex-col gap-1">
-                {Array.from(groupByCategory(group.items)).map(
-                  ([category, items]) => {
-                    const catKey = `${group.title}::${category}`;
-                    const isOpen = openCategories[catKey] === true;
-                    return (
-                      <div key={category}>
-                        <button
-                          onClick={() => toggleCategory(catKey)}
-                          className="flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-gray-500 hover:bg-green-100 hover:text-black"
-                        >
-                          <span>{category}</span>
-                          {isOpen ? <Minus size={12} /> : <Plus size={12} />}
-                        </button>
-                        {isOpen && (
-                          <div className="flex flex-col gap-0.5">
-                            {items.map((item) => {
-                              const isActive = pathname === item.href;
-                              return (
-                                <Link
-                                  key={item.href}
-                                  href={item.href}
-                                  className={`rounded-md px-3 py-1.5 text-xs transition-colors ${
-                                    isActive
-                                      ? "bg-green-200 font-medium text-black"
-                                      : "text-gray-800 hover:bg-green-100 hover:text-black"
-                                  }`}
-                                >
-                                  {item.label}
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  }
-                )}
-              </div>
+            {!collapsed && (
+              <AnimatedCollapse open={openGroups[group.title] === true}>
+                <div className="ml-3 mt-1 flex flex-col gap-1">
+                  {Array.from(groupByCategory(group.items)).map(
+                    ([category, items]) => {
+                      const catKey = `${group.title}::${category}`;
+                      const isOpen = openCategories[catKey] === true;
+                      return (
+                        <div key={category}>
+                          <button
+                            onClick={() => toggleCategory(catKey)}
+                            className="flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-gray-500 hover:bg-green-100 hover:text-black"
+                          >
+                            <span>{category}</span>
+                            {isOpen ? <Minus size={12} /> : <Plus size={12} />}
+                          </button>
+                          <AnimatedCollapse open={isOpen}>
+                            <div className="flex flex-col gap-0.5">
+                              {items.map((item) => {
+                                const isActive = pathname === item.href;
+                                return (
+                                  <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className={`rounded-md px-3 py-1.5 text-xs transition-colors ${
+                                      isActive
+                                        ? "bg-green-200 font-medium text-black"
+                                        : "text-gray-800 hover:bg-green-100 hover:text-black"
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </AnimatedCollapse>
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
+              </AnimatedCollapse>
             )}
           </div>
         ))}
