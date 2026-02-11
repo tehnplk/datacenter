@@ -12,7 +12,7 @@ import {
   Plus,
   Minus,
   Hospital,
-  Wind,
+  Cloud,
   LayoutDashboard,
   Menu,
   X,
@@ -73,7 +73,7 @@ const menuGroups: MenuGroup[] = [
   },
   {
     title: "PM 2.5",
-    icon: <Wind size={20} />,
+    icon: <Cloud size={20} />,
     items: [
       { category: "PM2.5", label: "Dashboard", href: "/pm25" },
     ],

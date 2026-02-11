@@ -104,6 +104,17 @@ exports.Prisma.HospitalScalarFieldEnum = {
   activated: 'activated'
 };
 
+exports.Prisma.DrgScalarFieldEnum = {
+  id: 'id',
+  hoscode: 'hoscode',
+  hosname: 'hosname',
+  year: 'year',
+  mon: 'mon',
+  ipdCase: 'ipdCase',
+  sumAdjrw: 'sumAdjrw',
+  cmi: 'cmi'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -121,7 +132,8 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Hospital: 'Hospital'
+  Hospital: 'Hospital',
+  Drg: 'Drg'
 };
 /**
  * Create the Client
@@ -131,10 +143,10 @@ const config = {
   "clientVersion": "7.3.0",
   "engineVersion": "9d6ad21cbbceab97458517b147a6a09ff43aa735",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../src/generated/onehos\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Hospital {\n  id        Int     @id @default(autoincrement())\n  hoscode   String  @unique @db.VarChar(5)\n  hosname   String  @db.VarChar(200)\n  hostype   String? @db.VarChar(2)\n  orgtype   String? @db.VarChar(2)\n  tmb       String? @db.VarChar(6)\n  amp       String? @db.VarChar(4)\n  prov      String? @db.VarChar(2)\n  activated Boolean @default(true)\n\n  @@map(\"hospital\")\n}\n"
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../src/generated/onehos\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Hospital {\n  id        Int     @id @default(autoincrement())\n  hoscode   String  @unique @db.VarChar(5)\n  hosname   String  @db.VarChar(200)\n  hostype   String? @db.VarChar(2)\n  orgtype   String? @db.VarChar(2)\n  tmb       String? @db.VarChar(6)\n  amp       String? @db.VarChar(4)\n  prov      String? @db.VarChar(2)\n  activated Boolean @default(true)\n\n  @@map(\"hospital\")\n}\n\nmodel Drg {\n  id       Int    @id @default(autoincrement())\n  hoscode  String @db.VarChar(5)\n  hosname  String @db.VarChar(200)\n  year     Int\n  mon      Int\n  ipdCase  Int    @default(0) @map(\"ipd_case\")\n  sumAdjrw Float  @map(\"sum_adjrw\")\n  cmi      Float\n\n  @@map(\"drg\")\n}\n"
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Hospital\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hostype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"orgtype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tmb\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"prov\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"activated\",\"kind\":\"scalar\",\"type\":\"Boolean\"}],\"dbName\":\"hospital\"}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Hospital\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hostype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"orgtype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tmb\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"prov\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"activated\",\"kind\":\"scalar\",\"type\":\"Boolean\"}],\"dbName\":\"hospital\"},\"Drg\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"year\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"mon\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"ipdCase\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"ipd_case\"},{\"name\":\"sumAdjrw\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"sum_adjrw\"},{\"name\":\"cmi\",\"kind\":\"scalar\",\"type\":\"Float\"}],\"dbName\":\"drg\"}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.compilerWasm = {
   getRuntime: async () => require('./query_compiler_fast_bg.js'),

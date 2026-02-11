@@ -20,3 +20,16 @@ model Hospital {
 
   @@map("hospital")
 }
+
+model Drg {
+  id        Int      @id @default(autoincrement())
+  hoscode   String   @db.VarChar(5)
+  hosname   String   @db.VarChar(200)
+  year      Int
+  mon       Int
+  ipdCase   Int      @default(0) @map("ipd_case")
+  sumAdjrw  Float    @map("sum_adjrw")
+  cmi       Float
+
+  @@map("drg")
+}
