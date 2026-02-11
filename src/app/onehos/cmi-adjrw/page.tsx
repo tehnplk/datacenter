@@ -1,12 +1,13 @@
 import React from "react";
 import { onehosClient } from "@/lib/onehos-prisma";
 import YearSelect from "./YearSelect";
+import MonthSelect from "./MonthSelect";
 
 export const revalidate = 0;
 
 type SearchParams = {
   year?: string;
-  month?: string;
+  months?: string;
 };
 
 const THAI_MONTHS = [
@@ -30,7 +31,13 @@ export default async function DrgsPage({
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
-  const monthFilter = parseFilterNumber(params.month);
+
+  const monthsFilter: number[] = params.months
+    ? params.months
+        .split(",")
+        .map(Number)
+        .filter((n) => Number.isFinite(n) && n >= 1 && n <= 12)
+    : [];
 
   const currentThaiYear = new Date().getFullYear() + 543;
   const yearFilter = parseFilterNumber(params.year) ?? currentThaiYear;
@@ -38,7 +45,7 @@ export default async function DrgsPage({
   const drgs = await onehosClient.drgs.findMany({
     where: {
       ...(yearFilter ? { year: yearFilter } : {}),
-      ...(monthFilter ? { mon: monthFilter } : {}),
+      ...(monthsFilter.length > 0 ? { mon: { in: monthsFilter } } : {}),
     },
     orderBy: [{ hoscode: "asc" }, { mon: "asc" }],
   });
@@ -62,8 +69,8 @@ export default async function DrgsPage({
     hosMap.get(d.hoscode)!.data.set(d.mon, d);
   }
 
-  const displayMonths = monthFilter
-    ? [...monthSet].sort((a, b) => a - b)
+  const displayMonths = monthsFilter.length > 0
+    ? monthsFilter.sort((a, b) => a - b)
     : Array.from({ length: 12 }, (_, i) => i + 1);
   const hospitals = [...hosMap.values()];
 
@@ -78,33 +85,7 @@ export default async function DrgsPage({
         <YearSelect
           currentYear={yearFilter}
         />
-        {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
-          <a
-            key={m}
-            href={
-              yearFilter
-                ? `/onehos/cmi-adjrw?year=${yearFilter}&month=${m}`
-                : `/onehos/cmi-adjrw?month=${m}`
-            }
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-              monthFilter === m
-                ? "bg-green-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
-          >
-            {formatMonthThai(m)}
-          </a>
-        ))}
-        <a
-          href={yearFilter ? `/onehos/cmi-adjrw?year=${yearFilter}` : "/onehos/cmi-adjrw"}
-          className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-            !monthFilter
-              ? "bg-green-600 text-white"
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-          }`}
-        >
-          All
-        </a>
+        <MonthSelect selectedMonths={monthsFilter} />
       </div>
 
       <div className="mt-6 overflow-x-auto rounded-lg border border-gray-200">
@@ -192,13 +173,13 @@ export default async function DrgsPage({
                 key={h.hoscode}
                 className="transition-colors hover:bg-green-50/50"
               >
-                <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-500">
+                <td className="whitespace-nowrap px-4 py-2 text-xs text-gray-500">
                   {i + 1}
                 </td>
-                <td className="whitespace-nowrap px-4 py-2 text-sm font-mono font-medium text-gray-900">
+                <td className="whitespace-nowrap px-4 py-2 text-xs font-mono font-medium text-gray-900">
                   {h.hoscode}
                 </td>
-                <td className="whitespace-nowrap px-4 py-2 text-sm text-gray-800">
+                <td className="whitespace-nowrap px-4 py-2 text-xs text-gray-800">
                   {h.hosname}
                 </td>
                 {displayMonths.map((m) => {

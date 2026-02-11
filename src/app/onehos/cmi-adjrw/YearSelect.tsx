@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const START_YEAR = 2565;
 
@@ -14,6 +14,7 @@ export default function YearSelect({
   currentYear?: number;
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const thaiYear = getThaiYear();
   const years = Array.from(
     { length: thaiYear - START_YEAR + 1 },
@@ -25,8 +26,14 @@ export default function YearSelect({
       className="mt-1 rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm"
       value={currentYear?.toString() ?? ""}
       onChange={(e) => {
+        const params = new URLSearchParams(searchParams.toString());
         const val = e.target.value;
-        router.push(val ? `/onehos/cmi-adjrw?year=${val}` : "/onehos/cmi-adjrw");
+        if (val) {
+          params.set("year", val);
+        } else {
+          params.delete("year");
+        }
+        router.push(`/onehos/cmi-adjrw?${params.toString()}`);
       }}
     >
       {years.map((y) => (
