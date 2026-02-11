@@ -112,36 +112,39 @@ export default async function DrgsPage({
                   >
                     หน่วยงาน
                   </th>
-                  {displayMonths.map((m) => (
+                  {displayMonths.map((m, idx) => (
                     <th
                       key={m}
                       colSpan={3}
-                      className="border-b border-l border-gray-200 px-2 py-2 text-center text-xs font-bold uppercase tracking-wider text-green-900"
+                      className={`border-b border-l border-gray-200 px-2 py-2 text-center text-xs font-bold uppercase tracking-wider text-green-900 ${idx % 2 === 0 ? "bg-green-100/60" : ""}`}
                     >
                       {formatMonthThai(m)}
                     </th>
                   ))}
                 </tr>
                 <tr>
-                  {displayMonths.map((m) => (
-                    <React.Fragment key={m}>
-                      <th className="h-10 px-1 border-l border-gray-200">
-                        <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
-                          case
-                        </span>
-                      </th>
-                      <th className="h-10 px-1">
-                        <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
-                          rw
-                        </span>
-                      </th>
-                      <th className="h-10 px-1">
-                        <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
-                          cmi
-                        </span>
-                      </th>
-                    </React.Fragment>
-                  ))}
+                  {displayMonths.map((m, idx) => {
+                    const stripe = idx % 2 === 0 ? "bg-green-100/60" : "";
+                    return (
+                      <React.Fragment key={m}>
+                        <th className={`h-10 px-1 border-l border-gray-200 ${stripe}`}>
+                          <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
+                            case
+                          </span>
+                        </th>
+                        <th className={`h-10 px-1 ${stripe}`}>
+                          <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
+                            rw
+                          </span>
+                        </th>
+                        <th className={`h-10 px-1 ${stripe}`}>
+                          <span className="inline-block -rotate-45 text-[8px] font-semibold uppercase text-green-700 whitespace-nowrap">
+                            cmi
+                          </span>
+                        </th>
+                      </React.Fragment>
+                    );
+                  })}
                 </tr>
               </>
             ) : (
@@ -182,14 +185,15 @@ export default async function DrgsPage({
                 <td className="whitespace-nowrap px-4 py-2 text-xs text-gray-800">
                   {h.hosname}
                 </td>
-                {displayMonths.map((m) => {
+                {displayMonths.map((m, idx) => {
                   const d = h.data.get(m);
+                  const stripe = idx % 2 === 0 ? "bg-green-50/60" : "";
                   return (
                     <React.Fragment key={m}>
-                      <td className="whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 border-l border-gray-100">
+                      <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 border-l border-gray-100 ${stripe}`}>
                         {d ? d.ipdCase.toLocaleString("th-TH") : "-"}
                       </td>
-                      <td className="whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800">
+                      <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono text-gray-800 ${stripe}`}>
                         {d
                           ? d.sumAdjrw.toLocaleString("th-TH", {
                               minimumFractionDigits: 2,
@@ -197,7 +201,7 @@ export default async function DrgsPage({
                             })
                           : "-"}
                       </td>
-                      <td className="whitespace-nowrap px-2 py-2 text-right text-xs font-mono font-semibold">
+                      <td className={`whitespace-nowrap px-2 py-2 text-right text-xs font-mono font-semibold ${stripe}`}>
                         {d ? (
                           <span
                             className={
