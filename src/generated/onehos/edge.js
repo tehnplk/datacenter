@@ -116,6 +116,18 @@ exports.Prisma.DrgsSumScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DrgsRwTopScalarFieldEnum = {
+  id: 'id',
+  hoscode: 'hoscode',
+  hosname: 'hosname',
+  year: 'year',
+  mon: 'mon',
+  drgsCode: 'drgsCode',
+  drgName: 'drgName',
+  adjRw: 'adjRw',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.RawDataScalarFieldEnum = {
   id: 'id',
   payload: 'payload',
@@ -152,6 +164,7 @@ exports.Prisma.JsonNullValueFilter = {
 exports.Prisma.ModelName = {
   Hospital: 'Hospital',
   DrgsSum: 'DrgsSum',
+  DrgsRwTop: 'DrgsRwTop',
   RawData: 'RawData'
 };
 /**
@@ -162,10 +175,10 @@ const config = {
   "clientVersion": "7.3.0",
   "engineVersion": "9d6ad21cbbceab97458517b147a6a09ff43aa735",
   "activeProvider": "postgresql",
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../src/generated/onehos\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Hospital {\n  id        Int     @id @default(autoincrement())\n  hoscode   String  @unique @db.VarChar(5)\n  hosname   String  @db.VarChar(200)\n  hostype   String? @db.VarChar(2)\n  orgtype   String? @db.VarChar(2)\n  tmb       String? @db.VarChar(6)\n  amp       String? @db.VarChar(4)\n  prov      String? @db.VarChar(2)\n  activated Boolean @default(true)\n\n  @@map(\"c_hospital\")\n}\n\nmodel DrgsSum {\n  id        Int       @id @default(autoincrement())\n  hoscode   String    @db.VarChar(5)\n  hosname   String    @db.VarChar(200)\n  year      Int\n  mon       Int\n  ipdCase   Int       @default(0) @map(\"ipd_case\")\n  sumAdjrw  Float     @map(\"sum_adjrw\")\n  cmi       Float\n  updatedAt DateTime? @map(\"updated_at\")\n\n  @@map(\"drgs_sum\")\n}\n\nmodel RawData {\n  id               String    @id @default(uuid())\n  payload          Json\n  updatedAt        DateTime  @default(now()) @map(\"updated_at\")\n  tranformDatetime DateTime? @map(\"tranform_datetime\")\n\n  @@map(\"raw_data\")\n}\n"
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../../src/generated/onehos\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Hospital {\n  id        Int     @id @default(autoincrement())\n  hoscode   String  @unique @db.VarChar(5)\n  hosname   String  @db.VarChar(200)\n  hostype   String? @db.VarChar(2)\n  orgtype   String? @db.VarChar(2)\n  tmb       String? @db.VarChar(6)\n  amp       String? @db.VarChar(4)\n  prov      String? @db.VarChar(2)\n  activated Boolean @default(true)\n\n  @@map(\"c_hospital\")\n}\n\nmodel DrgsSum {\n  id        Int       @id @default(autoincrement())\n  hoscode   String    @db.VarChar(5)\n  hosname   String    @db.VarChar(200)\n  year      Int\n  mon       Int\n  ipdCase   Int       @default(0) @map(\"ipd_case\")\n  sumAdjrw  Float     @map(\"sum_adjrw\")\n  cmi       Float\n  updatedAt DateTime? @map(\"updated_at\")\n\n  @@map(\"drgs_sum\")\n}\n\nmodel DrgsRwTop {\n  id        Int       @id @default(autoincrement())\n  hoscode   String    @db.VarChar(5)\n  hosname   String    @db.VarChar(200)\n  year      Int\n  mon       Int\n  drgsCode  String    @map(\"drgs_code\") @db.VarChar(10)\n  drgName   String    @map(\"drg_name\") @db.VarChar(255)\n  adjRw     Float     @map(\"adj_rw\")\n  updatedAt DateTime? @map(\"updated_at\")\n\n  @@map(\"drgs_rw_top\")\n}\n\nmodel RawData {\n  id               String    @id @default(uuid())\n  payload          Json\n  updatedAt        DateTime  @default(now()) @map(\"updated_at\")\n  tranformDatetime DateTime? @map(\"tranform_datetime\")\n\n  @@map(\"raw_data\")\n}\n"
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Hospital\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hostype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"orgtype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tmb\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"prov\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"activated\",\"kind\":\"scalar\",\"type\":\"Boolean\"}],\"dbName\":\"c_hospital\"},\"DrgsSum\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"year\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"mon\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"ipdCase\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"ipd_case\"},{\"name\":\"sumAdjrw\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"sum_adjrw\"},{\"name\":\"cmi\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"}],\"dbName\":\"drgs_sum\"},\"RawData\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"payload\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"},{\"name\":\"tranformDatetime\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"tranform_datetime\"}],\"dbName\":\"raw_data\"}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Hospital\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hostype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"orgtype\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tmb\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"prov\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"activated\",\"kind\":\"scalar\",\"type\":\"Boolean\"}],\"dbName\":\"c_hospital\"},\"DrgsSum\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"year\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"mon\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"ipdCase\",\"kind\":\"scalar\",\"type\":\"Int\",\"dbName\":\"ipd_case\"},{\"name\":\"sumAdjrw\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"sum_adjrw\"},{\"name\":\"cmi\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"}],\"dbName\":\"drgs_sum\"},\"DrgsRwTop\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"hoscode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"hosname\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"year\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"mon\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"drgsCode\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"drgs_code\"},{\"name\":\"drgName\",\"kind\":\"scalar\",\"type\":\"String\",\"dbName\":\"drg_name\"},{\"name\":\"adjRw\",\"kind\":\"scalar\",\"type\":\"Float\",\"dbName\":\"adj_rw\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"}],\"dbName\":\"drgs_rw_top\"},\"RawData\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"payload\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"updated_at\"},{\"name\":\"tranformDatetime\",\"kind\":\"scalar\",\"type\":\"DateTime\",\"dbName\":\"tranform_datetime\"}],\"dbName\":\"raw_data\"}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.compilerWasm = {
   getRuntime: async () => require('./query_compiler_fast_bg.js'),

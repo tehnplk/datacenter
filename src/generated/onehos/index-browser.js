@@ -144,6 +144,18 @@ exports.Prisma.DrgsSumScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DrgsRwTopScalarFieldEnum = {
+  id: 'id',
+  hoscode: 'hoscode',
+  hosname: 'hosname',
+  year: 'year',
+  mon: 'mon',
+  drgsCode: 'drgsCode',
+  drgName: 'drgName',
+  adjRw: 'adjRw',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.RawDataScalarFieldEnum = {
   id: 'id',
   payload: 'payload',
@@ -180,6 +192,7 @@ exports.Prisma.JsonNullValueFilter = {
 exports.Prisma.ModelName = {
   Hospital: 'Hospital',
   DrgsSum: 'DrgsSum',
+  DrgsRwTop: 'DrgsRwTop',
   RawData: 'RawData'
 };
 

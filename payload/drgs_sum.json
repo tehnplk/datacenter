@@ -1,0 +1,12 @@
+{
+  "schema": "drgs_sum",
+  "send_at": "2026-02-12T00:09:00Z",
+  "hoscode": "11255",
+  "year": 2568,
+  "mon": 4,
+  "data": {
+    "rw": 1.01,
+    "cmi": 0.67,
+    "case": 869
+  }
+}

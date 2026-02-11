@@ -1,0 +1,19 @@
+{
+  "schema": "drgs_rw_top",
+  "send_at": "2026-02-12T00:09:00Z",
+  "hoscode": "11255",
+  "year": 2569,
+  "mon": 1,
+  "data": [
+    { "drgs_code": "0101", "adj_rw": 1.25 },
+    { "drgs_code": "0300", "adj_rw": 0.95 },
+    { "drgs_code": "0501", "adj_rw": 1.40 },
+    { "drgs_code": "0810", "adj_rw": 1.80 },
+    { "drgs_code": "0820", "adj_rw": 0.85 },
+    { "drgs_code": "0400", "adj_rw": 1.10 },
+    { "drgs_code": "0601", "adj_rw": 0.70 },
+    { "drgs_code": "0700", "adj_rw": 1.30 },
+    { "drgs_code": "1200", "adj_rw": 2.10 },
+    { "drgs_code": "0900", "adj_rw": 1.90 }
+  ]
+}
