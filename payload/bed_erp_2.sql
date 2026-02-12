@@ -1,5 +1,7 @@
 -- สร้างตาราง indiv-admit  ด้วย bed_erp_1.sql --
 
+-- ใช้ใน webapp ---
+
 SET @hoscode = (SELECT hospitalcode FROM opdconfig LIMIT 1);
 
 SELECT

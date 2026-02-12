@@ -1,3 +1,4 @@
+-- hos ส่งข้อมูล --
 SET @hoscode = (SELECT hospitalcode FROM opdconfig LIMIT 1);
 
 SELECT
