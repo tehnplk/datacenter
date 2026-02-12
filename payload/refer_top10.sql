@@ -4,7 +4,8 @@ SELECT
     @hoscode as hoscode,
     v.pdx AS icd10,
     i.name AS icd10_name,
-    COUNT(*) AS total_refer
+    COUNT(*) AS total_refer,
+    NOW() AS d_update
 FROM referout r
 LEFT JOIN vn_stat v ON v.vn = r.vn
 LEFT JOIN icd101 i ON i.code = v.pdx
