@@ -50,10 +50,10 @@ model DrgsRwTop {
 }
 
 model RawData {
-  id        String   @id @default(uuid())
+  id        String   @id @default(uuid()) @db.Uuid
   payload   Json
   updatedAt DateTime @default(now()) @map("updated_at")
-  tranformDatetime DateTime? @map("tranform_datetime")
+  tranformDatetime DateTime? @map("tranform_datetime") @db.Timestamptz
 
   @@map("raw_data")
 }
