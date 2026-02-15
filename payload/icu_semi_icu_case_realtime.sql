@@ -1,12 +1,10 @@
-SET @hoscode = (SELECT hospitalcode FROM opdconfig limit 1);
+SELECT
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode
+ ,COUNT(ipt.an) AS icu_case
+ ,NOW() AS updated_at
 
-select   
-@hoscode as hoscode,
-count(ipt.an)as'icu_case',
-now() as updated_at 
-
-from ipt
-left outer join iptadm on iptadm.an=ipt.an
-left outer join bedno  on bedno.bedno=iptadm.bedno
-where bedno.export_code='199100'
-and ipt.dchstts is null
+FROM ipt
+LEFT OUTER JOIN iptadm ON iptadm.an = ipt.an
+LEFT OUTER JOIN bedno ON bedno.bedno = iptadm.bedno
+WHERE bedno.export_code = '199100'
+  AND ipt.dchstts IS NULL

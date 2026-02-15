@@ -1,5 +1,6 @@
 -- อัตราการใช้ห้องผ่าตัดรายปี
 SELECT 
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   YEAR(enter_date) AS op_year,
   YEAR(enter_date) + 543 AS op_year_be,
   COUNT(*) AS total_cases,

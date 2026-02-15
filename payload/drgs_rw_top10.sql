@@ -1,11 +1,10 @@
-SET @hoscode = (SELECT hospitalcode FROM opdconfig limit 1);
-
-SELECT @hoscode as hoscode,
-       YEAR(dchdate) AS y,
-       MONTH(dchdate) AS m,
-       drg AS drgs_code,
-       SUM(adjrw) AS sum_adj_rw,
-       NOW() AS d_update
+SELECT
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode
+ ,YEAR(dchdate) AS y
+ ,MONTH(dchdate) AS m
+ ,drg AS drgs_code
+ ,SUM(adjrw) AS sum_adj_rw
+ ,NOW() AS d_update
 FROM ipt
 
 WHERE YEAR(dchdate) = 2026

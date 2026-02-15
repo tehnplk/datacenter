@@ -1,14 +1,14 @@
 -- hos ส่งข้อมูล --
 SELECT
-  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
-  CONCAT(LEFT(i.an, 3), REPEAT('X', GREATEST(CHAR_LENGTH(i.an) - 5, 0)), RIGHT(i.an, 2)) AS an_censored,
-  a.bedno,
-  b.export_code,
-  i.regdate,
-  i.dchdate,
-  GREATEST(i.regdate, DATE('2025-01-01')) AS calc_start,
-  LEAST(i.dchdate, CURDATE()) AS calc_end,
-  CASE
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode
+ ,CONCAT(LEFT(i.an, 3), REPEAT('X', GREATEST(CHAR_LENGTH(i.an) - 5, 0)), RIGHT(i.an, 2)) AS an_censored
+ ,a.bedno
+ ,b.export_code
+ ,i.regdate
+ ,i.dchdate
+ ,GREATEST(i.regdate, DATE('2025-01-01')) AS calc_start
+ ,LEAST(i.dchdate, CURDATE()) AS calc_end
+ ,CASE
     WHEN LEAST(i.dchdate, CURDATE()) >= GREATEST(i.regdate, DATE('2025-01-01'))
       THEN DATEDIFF(LEAST(i.dchdate, CURDATE()), GREATEST(i.regdate, DATE('2025-01-01'))) + 1
     ELSE 0

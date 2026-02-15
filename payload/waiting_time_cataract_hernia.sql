@@ -10,11 +10,9 @@
 --   ตาราง            : oapp (นัดหมาย) JOIN ovstdiag (วินิจฉัย OPD)
 -- ============================================================
 
-SET @hoscode = (SELECT hospitalcode FROM opdconfig LIMIT 1);
-
 -- 1. ภาพรวมรวมทุกปี - ต้อกระจก (Cataract)
 SELECT 
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   'ต้อกระจก (Cataract)' AS disease_group,
   COUNT(*) AS total_appointments,
   ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)), 2) AS avg_wait_days,
@@ -30,7 +28,7 @@ WHERE (od.icd10 LIKE 'H25%' OR od.icd10 LIKE 'H26%')
 
 -- 2. ภาพรวมรวมทุกปี - ไส้เลื่อน (Hernia)
 SELECT 
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   'ไส้เลื่อน (Hernia)' AS disease_group,
   COUNT(*) AS total_appointments,
   ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)), 2) AS avg_wait_days,

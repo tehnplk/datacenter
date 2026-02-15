@@ -1,7 +1,5 @@
-SET @hoscode = (SELECT hospitalcode FROM opdconfig LIMIT 1);
-
 SELECT
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   2025 AS y,
   d.icd10 AS pdx,
   COALESCE(i10.tname, '(ไม่พบชื่อโรค)') AS pdx_name,

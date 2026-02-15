@@ -1,7 +1,5 @@
-SET @hoscode = (SELECT hospitalcode FROM opdconfig limit 1);
-
 SELECT 
-    @hoscode as hoscode,
+    (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
     v.pdx AS icd10,
     i.name AS icd10_name,
     COUNT(*) AS total_refer,

@@ -1,6 +1,5 @@
-SET @hoscode = (SELECT hospitalcode FROM opdconfig limit 1);
 SELECT
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   m.y,
   m.m,
   (SELECT COUNT(*)

@@ -1,4 +1,9 @@
-SELECT (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,b.export_code, b.bedno,bedtype,roomno
+SELECT 
+(SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode
+,b.export_code
+,b.bedno
+,b.bedtype
+,b.roomno
 FROM bedno b
 WHERE b.export_code IS NOT NULL
   AND TRIM(b.export_code) <> ''

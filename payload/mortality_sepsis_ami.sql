@@ -8,11 +8,9 @@
 --   ตาราง         : ipt (ผู้ป่วยใน) JOIN iptdiag (การวินิจฉัย)
 -- ============================================================
 
-SET @hoscode = (SELECT hospitalcode FROM opdconfig LIMIT 1);
-
 -- 1. ภาพรวมรวมทุกปี - Sepsis
 SELECT 
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   'Sepsis' AS disease,
   COUNT(DISTINCT i.an) AS total_admissions,
   SUM(CASE WHEN i.dchstts = '09' THEN 1 ELSE 0 END) AS deaths,
@@ -27,7 +25,7 @@ WHERE (d.icd10 LIKE 'A40%' OR d.icd10 LIKE 'A41%' OR d.icd10 LIKE 'R652%')
 
 -- 2. ภาพรวมรวมทุกปี - AMI
 SELECT 
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   'AMI' AS disease,
   COUNT(DISTINCT i.an) AS total_admissions,
   SUM(CASE WHEN i.dchstts = '09' THEN 1 ELSE 0 END) AS deaths,
@@ -42,7 +40,7 @@ WHERE (d.icd10 LIKE 'I21%' OR d.icd10 LIKE 'I22%')
 
 -- 3. แยกรายปี (Sepsis + AMI รวมในคิวรี่เดียว)
 SELECT 
-  @hoscode AS hoscode,
+  (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode,
   YEAR(i.dchdate) AS discharge_year,
   -- Sepsis
   SUM(CASE WHEN d.icd10 LIKE 'A40%' OR d.icd10 LIKE 'A41%' OR d.icd10 LIKE 'R652%' 
