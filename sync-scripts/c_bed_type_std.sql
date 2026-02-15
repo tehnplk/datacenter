@@ -1,9 +1,9 @@
-CREATE TABLE bed_type_std (
+CREATE TABLE c_bed_type_std (
   code CHAR(3) NOT NULL PRIMARY KEY COMMENT 'หลักที่ 4-5-6',
   name VARCHAR(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO bed_type_std (code, name) VALUES
+INSERT INTO c_bed_type_std (code, name) VALUES
 -- 1 = Ward
 ('100', 'Ward'),
 -- 2 = ICU
