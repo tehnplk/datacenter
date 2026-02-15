@@ -1,7 +1,7 @@
 -- hos ส่งข้อมูล --
 SELECT
   (SELECT hospitalcode FROM opdconfig LIMIT 1) AS hoscode
- ,CONCAT(LEFT(i.an, 3), REPEAT('X', GREATEST(CHAR_LENGTH(i.an) - 5, 0)), RIGHT(i.an, 2)) AS an_censored
+ ,'xxxxxx' AS an_censored
  ,a.bedno
  ,b.export_code
  ,i.regdate
@@ -13,6 +13,7 @@ SELECT
       THEN DATEDIFF(LEAST(i.dchdate, CURDATE()), GREATEST(i.regdate, DATE('2025-01-01'))) + 1
     ELSE 0
   END AS overlap_days
+ ,NOW() AS d_update
 FROM ipt i
 JOIN iptadm a ON a.an = i.an
 JOIN bedno b ON b.bedno = a.bedno

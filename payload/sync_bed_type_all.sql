@@ -4,6 +4,7 @@ SELECT
 ,b.bedno
 ,b.bedtype
 ,b.roomno
+,NOW() AS d_update
 FROM bedno b
 WHERE b.export_code IS NOT NULL
   AND TRIM(b.export_code) <> ''

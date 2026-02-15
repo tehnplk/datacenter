@@ -12,6 +12,7 @@ SELECT
  ,avg_refer_wait_min
  ,ROUND(avg_refer_wait_min / 60.0, 2) AS avg_refer_wait_hr
  ,pct_over_4hr
+ ,NOW() AS d_update
 FROM (
   SELECT
     yr

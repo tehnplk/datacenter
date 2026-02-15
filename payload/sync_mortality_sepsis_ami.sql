@@ -17,7 +17,8 @@ SELECT
   ROUND(
     SUM(CASE WHEN i.dchstts = '09' THEN 1 ELSE 0 END) * 100.0 
     / COUNT(DISTINCT i.an), 2
-  ) AS mortality_rate_pct
+  ) AS mortality_rate_pct,
+  NOW() AS d_update
 FROM ipt i
 INNER JOIN iptdiag d ON d.an = i.an
 WHERE (d.icd10 LIKE 'A40%' OR d.icd10 LIKE 'A41%' OR d.icd10 LIKE 'R652%')
@@ -32,7 +33,8 @@ SELECT
   ROUND(
     SUM(CASE WHEN i.dchstts = '09' THEN 1 ELSE 0 END) * 100.0 
     / COUNT(DISTINCT i.an), 2
-  ) AS mortality_rate_pct
+  ) AS mortality_rate_pct,
+  NOW() AS d_update
 FROM ipt i
 INNER JOIN iptdiag d ON d.an = i.an
 WHERE (d.icd10 LIKE 'I21%' OR d.icd10 LIKE 'I22%')
@@ -63,7 +65,8 @@ SELECT
         AND i.dchstts = '09' THEN 1 ELSE 0 END) * 100.0 
     / NULLIF(SUM(CASE WHEN d.icd10 LIKE 'I21%' OR d.icd10 LIKE 'I22%' 
         THEN 1 ELSE 0 END), 0)
-  , 2) AS ami_mortality_pct
+  , 2) AS ami_mortality_pct,
+  NOW() AS d_update
 FROM ipt i
 INNER JOIN iptdiag d ON d.an = i.an
 WHERE i.dchdate IS NOT NULL

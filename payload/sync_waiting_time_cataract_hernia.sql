@@ -18,7 +18,8 @@ SELECT
   ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)), 2) AS avg_wait_days,
   MIN(DATEDIFF(oa.nextdate, oa.vstdate)) AS min_wait_days,
   MAX(DATEDIFF(oa.nextdate, oa.vstdate)) AS max_wait_days,
-  ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)) / 7, 1) AS avg_wait_weeks
+  ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)) / 7, 1) AS avg_wait_weeks,
+  NOW() AS d_update
 FROM oapp oa
 INNER JOIN ovstdiag od ON od.vn = oa.vn
 WHERE (od.icd10 LIKE 'H25%' OR od.icd10 LIKE 'H26%')
@@ -34,7 +35,8 @@ SELECT
   ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)), 2) AS avg_wait_days,
   MIN(DATEDIFF(oa.nextdate, oa.vstdate)) AS min_wait_days,
   MAX(DATEDIFF(oa.nextdate, oa.vstdate)) AS max_wait_days,
-  ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)) / 7, 1) AS avg_wait_weeks
+  ROUND(AVG(DATEDIFF(oa.nextdate, oa.vstdate)) / 7, 1) AS avg_wait_weeks,
+  NOW() AS d_update
 FROM oapp oa
 INNER JOIN ovstdiag od ON od.vn = oa.vn
 WHERE (od.icd10 LIKE 'K40%' OR od.icd10 LIKE 'K41%' 
@@ -62,7 +64,8 @@ SELECT
         THEN DATEDIFF(oa.nextdate, oa.vstdate) END), 2) AS hernia_avg_wait_days,
   ROUND(AVG(CASE WHEN od.icd10 LIKE 'K40%' OR od.icd10 LIKE 'K41%' 
                   OR od.icd10 LIKE 'K42%' OR od.icd10 LIKE 'K43%' 
-        THEN DATEDIFF(oa.nextdate, oa.vstdate) END) / 7, 1) AS hernia_avg_wait_weeks
+        THEN DATEDIFF(oa.nextdate, oa.vstdate) END) / 7, 1) AS hernia_avg_wait_weeks,
+  NOW() AS d_update
 FROM oapp oa
 INNER JOIN ovstdiag od ON od.vn = oa.vn
 WHERE (od.icd10 LIKE 'H25%' OR od.icd10 LIKE 'H26%' 

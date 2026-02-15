@@ -18,7 +18,8 @@ SELECT
   ROUND(SUM(TIMESTAMPDIFF(MINUTE, 
     CONCAT(enter_date, ' ', enter_time), 
     CONCAT(leave_date, ' ', leave_time))) * 100.0 
-    / (COUNT(DISTINCT enter_date) * 480), 2) AS util_pct
+    / (COUNT(DISTINCT enter_date) * 480), 2) AS util_pct,
+  NOW() AS d_update
 FROM operation_list
 WHERE enter_date IS NOT NULL 
   AND enter_time IS NOT NULL 
