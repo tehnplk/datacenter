@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f0fdf4;
+  --foreground: #14532d;
+  --surface: #ffffff;
+  --border: #bbf7d0;
+  --accent: #16a34a;
+  --accent-fg: #ffffff;
+  --muted: #dcfce7;
+  --muted-fg: #166534;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #052e16;
+    --foreground: #dcfce7;
+    --surface: #14532d;
+    --border: #166534;
+    --accent: #4ade80;
+    --accent-fg: #052e16;
+    --muted: #166534;
+    --muted-fg: #bbf7d0;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Dashboard helpers */
+.dc2-surface {
+  background: color-mix(in oklab, var(--background) 92%, var(--foreground) 8%);
+}
+
+/* Page transition */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main,
+[data-page] {
+  animation: page-enter 0.2s ease-out both;
+}
